@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   description: "Explore Kestrel Village new construction homes in Summerlin West, Las Vegas. 6+ communities from $480K by Woodside, Pulte, Lennar & Taylor Morrison. Call Dr. Jan Duffy 702-222-1964 for VIP tours.",
   keywords: "Kestrel Village, Summerlin West homes, Las Vegas new construction, Woodside Homes, Pulte Homes, Lennar, Taylor Morrison, Dr. Jan Duffy, 89138",
   authors: [{ name: "Dr. Jan Duffy" }],
+  metadataBase: new URL("https://www.kestrelvillage.com"),
   openGraph: {
     title: "Kestrel Village New Homes | Summerlin West Las Vegas",
     description: "New construction homes from $480K in Las Vegas' most sought-after village. 6+ communities by premier builders.",
@@ -44,6 +45,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.kestrelvillage.com",
+  },
+  other: {
+    "theme-color": "#0c0a09",
   },
 };
 

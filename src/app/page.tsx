@@ -1,16 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { communities } from '@/data/communities';
 
 export default function KestrelVillage() {
-  const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', interest: 'buyer' });
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,7 +41,8 @@ export default function KestrelVillage() {
         {/* Mobile Call Button */}
         <a 
           href="tel:7022221964"
-          className="fixed bottom-6 right-6 z-50 md:hidden bg-amber-500 text-stone-950 p-4 rounded-full shadow-2xl shadow-amber-500/30 animate-pulse"
+          className="fixed bottom-6 right-6 z-50 md:hidden bg-amber-500 text-stone-950 p-4 rounded-full shadow-2xl shadow-amber-500/30"
+          aria-label="Call Dr. Jan Duffy"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -86,31 +82,22 @@ export default function KestrelVillage() {
           />
 
           <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-            <div 
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-500/30 bg-amber-500/10 mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            >
-              <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-500/30 bg-amber-500/10 mb-8 animate-fade-in">
+              <span className="w-2 h-2 bg-amber-500 rounded-full" />
               <span className="text-amber-400 text-sm tracking-wider uppercase">Summerlin West • 3,000+ Ft Elevation</span>
             </div>
 
-            <h1 
-              className={`text-5xl md:text-7xl lg:text-8xl font-light tracking-tight mb-6 transition-all duration-1000 delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-            >
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight mb-6 animate-fade-in-delay-1">
               <span className="block text-stone-100">Kestrel Village</span>
               <span className="block text-amber-400 italic mt-2">New Construction</span>
             </h1>
 
-            <p 
-              className={`text-xl md:text-2xl text-stone-400 max-w-3xl mx-auto mb-10 leading-relaxed transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            >
+            <p className="text-xl md:text-2xl text-stone-400 max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-delay-2">
               Panoramic valley views from Las Vegas&apos; most sought-after new village. 
               New homes from <span className="text-amber-400 font-medium">$480K</span> by Summerlin&apos;s premier builders.
             </p>
 
-            <div 
-              className={`grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-12 transition-all duration-1000 delay-450 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-12 animate-fade-in-delay-3">
               {[
                 { value: '6+', label: 'New Communities' },
                 { value: '5', label: 'Top Builders' },
@@ -118,15 +105,13 @@ export default function KestrelVillage() {
                 { value: '551+', label: 'New Homes' }
               ].map((stat, i) => (
                 <div key={i} className="text-center p-4 bg-stone-900/50 rounded-sm border border-stone-800/50">
-                  <div className="text-2xl md:text-3xl font-light text-amber-400" style={{ fontFamily: "'Playfair Display', serif" }}>{stat.value}</div>
+                  <div className="text-2xl md:text-3xl font-light text-amber-400">{stat.value}</div>
                   <div className="text-xs text-stone-500 uppercase tracking-wider mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>
 
-            <div 
-              className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-3">
               <a 
                 href="tel:7022221964"
                 className="group px-8 py-4 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-all flex items-center justify-center gap-2"
@@ -144,7 +129,7 @@ export default function KestrelVillage() {
               </a>
             </div>
 
-            <div className={`mt-16 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="mt-16 animate-fade-in-delay-4">
               <p className="text-stone-600 text-xs uppercase tracking-widest mb-4">Featuring Homes By</p>
               <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 text-stone-500 text-sm">
                 {['Woodside Homes', 'Pulte Homes', 'Lennar', 'Taylor Morrison', 'Richmond American'].map((b, i) => (
