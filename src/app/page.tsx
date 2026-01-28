@@ -1,96 +1,16 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { communities } from '@/data/communities';
 
 export default function KestrelVillage() {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeNeighborhood, setActiveNeighborhood] = useState<string | null>(null);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', interest: 'buyer' });
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
-  const neighborhoods = [
-    {
-      name: 'Dove Rock',
-      builder: 'Woodside Homes',
-      type: 'Townhomes',
-      sqft: '1,716 - 2,217',
-      beds: '2-4',
-      baths: '2.5',
-      garage: '2-car',
-      price: 'From $520K',
-      status: 'Now Selling',
-      units: 67,
-      highlight: 'Community pool, modern Spanish architecture'
-    },
-    {
-      name: 'Falcon Crest',
-      builder: 'Woodside Homes',
-      type: 'Single-Story',
-      sqft: '1,950 - 2,218',
-      beds: '3-5',
-      baths: '2.5-3.5',
-      garage: '3-car',
-      price: 'From $580K',
-      status: 'Move-In Ready',
-      units: 110,
-      highlight: 'All single-story, gated community'
-    },
-    {
-      name: 'Mockingbird',
-      builder: 'Lennar Homes',
-      type: 'Two-Story',
-      sqft: '3,000+',
-      beds: '4-5',
-      baths: '3-4',
-      garage: '2-3 car',
-      price: 'From $650K',
-      status: 'Now Selling',
-      units: 79,
-      highlight: 'Next Gen suites for multigenerational living'
-    },
-    {
-      name: 'Blacktail',
-      builder: 'Pulte Homes',
-      type: 'Single-Family',
-      sqft: '2,100 - 2,800',
-      beds: '3-5',
-      baths: '2.5-3.5',
-      garage: '2-3 car',
-      price: 'From $590K',
-      status: 'Now Selling',
-      units: 95,
-      highlight: 'Life-tested designs, smart home ready, gated'
-    },
-    {
-      name: 'Osprey Ridge',
-      builder: 'Taylor Morrison',
-      type: 'Single-Family',
-      sqft: '2,200 - 3,100',
-      beds: '3-5',
-      baths: '3-4',
-      garage: '3-car',
-      price: 'From $620K',
-      status: 'Now Selling',
-      units: 88,
-      highlight: 'Premium elevated lots, mountain views'
-    },
-    {
-      name: 'Vireo',
-      builder: 'Woodside Homes',
-      type: '2-3 Story',
-      sqft: '1,441 - 2,034',
-      beds: '2-3',
-      baths: '2.5-3.5',
-      garage: '2-car',
-      price: 'From $480K',
-      status: 'Now Selling',
-      units: 112,
-      highlight: 'Kestrel Commons, covered patios & decks'
-    }
-  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -293,52 +213,54 @@ export default function KestrelVillage() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {neighborhoods.map((n, i) => (
+              {communities.map((n) => (
                 <div 
-                  key={i}
+                  key={n.slug}
                   className="group bg-stone-950 border border-stone-800 rounded-sm overflow-hidden hover:border-amber-500/50 transition-all duration-300"
                 >
-                  <div className="bg-gradient-to-r from-amber-500/10 to-transparent p-6 border-b border-stone-800">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <span className="text-xs text-amber-500 uppercase tracking-wider">{n.builder}</span>
-                        <h3 className="text-2xl font-light text-stone-100 mt-1" style={{ fontFamily: "'Playfair Display', serif" }}>{n.name}</h3>
-                      </div>
-                      <span className={`text-xs px-3 py-1 rounded-full ${n.status === 'Now Selling' ? 'bg-green-500/20 text-green-400' : n.status === 'Move-In Ready' ? 'bg-amber-500/20 text-amber-400' : 'bg-stone-700 text-stone-400'}`}>
-                        {n.status}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-6">
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div>
-                        <span className="text-xs text-stone-500 uppercase">Type</span>
-                        <p className="text-stone-200">{n.type}</p>
-                      </div>
-                      <div>
-                        <span className="text-xs text-stone-500 uppercase">Sq Ft</span>
-                        <p className="text-stone-200">{n.sqft}</p>
-                      </div>
-                      <div>
-                        <span className="text-xs text-stone-500 uppercase">Beds</span>
-                        <p className="text-stone-200">{n.beds}</p>
-                      </div>
-                      <div>
-                        <span className="text-xs text-stone-500 uppercase">Garage</span>
-                        <p className="text-stone-200">{n.garage}</p>
+                  <Link href={`/communities/${n.slug}`} className="block">
+                    <div className="bg-gradient-to-r from-amber-500/10 to-transparent p-6 border-b border-stone-800">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <span className="text-xs text-amber-500 uppercase tracking-wider">{n.builder}</span>
+                          <h3 className="text-2xl font-light text-stone-100 mt-1" style={{ fontFamily: "'Playfair Display', serif" }}>{n.name}</h3>
+                        </div>
+                        <span className={`text-xs px-3 py-1 rounded-full ${n.status === 'Now Selling' ? 'bg-green-500/20 text-green-400' : n.status === 'Move-In Ready' ? 'bg-amber-500/20 text-amber-400' : 'bg-stone-700 text-stone-400'}`}>
+                          {n.status}
+                        </span>
                       </div>
                     </div>
 
-                    <p className="text-sm text-stone-400 mb-6 min-h-[40px]">{n.highlight}</p>
+                    <div className="p-6">
+                      <div className="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                          <span className="text-xs text-stone-500 uppercase">Type</span>
+                          <p className="text-stone-200">{n.type}</p>
+                        </div>
+                        <div>
+                          <span className="text-xs text-stone-500 uppercase">Sq Ft</span>
+                          <p className="text-stone-200">{n.sqft}</p>
+                        </div>
+                        <div>
+                          <span className="text-xs text-stone-500 uppercase">Beds</span>
+                          <p className="text-stone-200">{n.beds}</p>
+                        </div>
+                        <div>
+                          <span className="text-xs text-stone-500 uppercase">Garage</span>
+                          <p className="text-stone-200">{n.garage}</p>
+                        </div>
+                      </div>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-stone-800">
-                      <div>
-                        <span className="text-2xl font-light text-amber-400" style={{ fontFamily: "'Playfair Display', serif" }}>{n.price}</span>
-                        <span className="text-xs text-stone-500 ml-2">• {n.units} homes</span>
+                      <p className="text-sm text-stone-400 mb-6 min-h-[40px]">{n.highlight}</p>
+
+                      <div className="flex items-center justify-between pt-4 border-t border-stone-800">
+                        <div>
+                          <span className="text-2xl font-light text-amber-400" style={{ fontFamily: "'Playfair Display', serif" }}>{n.price}</span>
+                          <span className="text-xs text-stone-500 ml-2">• {n.units} homes</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
 
                   <a 
                     href="tel:7022221964"
