@@ -66,25 +66,25 @@ export const communities: Community[] = [
   {
     slug: 'mockingbird',
     name: 'Mockingbird',
-    builder: 'Lennar Homes',
+    builder: 'Lennar',
     type: 'Two-Story',
-    sqft: '3,000+',
-    beds: '4-5',
+    sqft: '3,000 - 3,335',
+    beds: '5',
     baths: '3-4',
     garage: '2-3 car',
-    price: 'From $650K',
+    price: 'From $838K',
     status: 'Now Selling',
     units: 79,
-    highlight: 'Next Gen suites for multigenerational living',
-    description: 'Mockingbird at Kestrel Village offers Lennar two-story homes from $650K. 4–5 beds, 3,000+ sq ft. Next Gen suites for multigenerational living in Summerlin West.',
+    highlight: 'NextGen suites for multigenerational living',
+    description: 'Mockingbird at Kestrel Village offers Lennar two-story homes from $837,990. 3 floor plans (Bobby, Peter, Greg NextGen) with 5 beds, 3,000–3,335 sq ft. NextGen suites for multigenerational living in Summerlin West.',
     highlights: [
-      'Next Gen suites',
-      'Multigenerational living',
-      '4–5 bedrooms',
-      '3,000+ sq ft',
-      '2–3 car garage'
+      'NextGen suites available',
+      '3 floor plans: Bobby, Peter, Greg NextGen',
+      '5 bedrooms, 3-4 baths',
+      '3,000–3,335 sq ft',
+      'Multigenerational living options'
     ],
-    amenities: ['Next Gen private suite', 'Dual master options', 'Expansive great rooms', 'Outdoor living spaces']
+    amenities: ['NextGen private suite', 'Dual master options', 'Expansive great rooms', 'Outdoor living spaces', 'Smart home features']
   },
   {
     slug: 'blacktail',
