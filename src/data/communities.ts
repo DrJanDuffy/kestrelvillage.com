@@ -118,19 +118,19 @@ export const communities: Community[] = [
     beds: '2-4',
     baths: '2.5-3.5',
     garage: '2-car',
-    price: 'From high $400K',
+    price: 'From $455K',
     status: 'Now Selling',
     units: 80,
     highlight: 'First-ever KB Home 3-story floor plans in Las Vegas',
-    description: 'Quail Cove at Kestrel Commons features KB Home\'s first-ever three-story floor plans in Las Vegas. 4 modern designs from high $400Ks to mid-$500Ks. 2–4 beds, 1,651–2,302 sq ft with covered balconies and Smart home features.',
+    description: 'Quail Cove at Kestrel Commons features KB Home\'s first-ever three-story floor plans in Las Vegas from $454,990. 4 modern designs with 2–4 beds, 1,651–2,302 sq ft. Mountain views, planned park, and 1 mile to Grand Park.',
     highlights: [
       'First 3-story KB Homes in Las Vegas',
       '4 modern contemporary floor plans',
-      'Covered balconies',
-      'Tankless water heaters',
-      'Smart thermostats included'
+      'Mountain views',
+      'Planned community park',
+      '1 mile to Grand Park'
     ],
-    amenities: ['Three-story living', 'Covered balconies', 'Tankless water heater', 'Smart thermostat', 'Upstairs laundry', 'Walk-in pantry options']
+    amenities: ['Three-story living', 'Mountain views', 'Walking paths', 'Planned park', 'Near Downtown Summerlin', 'Easy I-215 access']
   },
   {
     slug: 'mockingbird',

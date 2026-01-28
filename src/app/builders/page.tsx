@@ -96,7 +96,7 @@ const builders = [
     description: 'KB Home offers two neighborhoods in Kestrel Commons with their Built to Order® approach. Nighthawk features gated two-story homes, while Quail Cove introduces KB Home\'s first-ever three-story floor plans in Las Vegas.',
     communities: [
       { name: 'Nighthawk', status: 'Now Selling', price: 'From mid-$500K', type: 'Two-Story', link: '/communities/nighthawk' },
-      { name: 'Quail Cove', status: 'Now Selling', price: 'From high $400K', type: 'Three-Story', link: '/communities/quail-cove' },
+      { name: 'Quail Cove', status: 'Now Selling', price: 'From $455K', type: 'Three-Story', link: '/communities/quail-cove' },
     ],
     features: [
       'Built to Order® personalization',
@@ -268,7 +268,7 @@ export default function BuildersPage() {
                 </tr>
                 <tr className="border-b border-stone-800/50">
                   <td className="py-4 px-4 text-stone-100">KB Home</td>
-                  <td className="py-4 px-4 text-amber-400">From high $400K</td>
+                  <td className="py-4 px-4 text-amber-400">From $455K</td>
                   <td className="py-4 px-4 text-stone-300">2-Story & 3-Story</td>
                   <td className="py-4 px-4 text-stone-400">Built to Order®</td>
                 </tr>

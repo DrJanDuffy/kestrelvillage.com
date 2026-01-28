@@ -117,7 +117,7 @@ const floorPlans = {
         name: 'Quail Cove',
         status: 'Now Selling',
         plans: [
-          { name: 'Plan 1651', sqft: '1,651', beds: 3, baths: 3.5, stories: 3, garage: 2, price: 'From high $400K' },
+          { name: 'Plan 1651', sqft: '1,651', beds: 3, baths: 3.5, stories: 3, garage: 2, price: 'From $455K' },
           { name: 'Plan 1920', sqft: '1,920', beds: 4, baths: 3.5, stories: 3, garage: 2, price: 'From low $500K' },
           { name: 'Plan 2226', sqft: '2,226', beds: 4, baths: 3.5, stories: 3, garage: 2, price: 'From mid-$500K' },
           { name: 'Plan 2302', sqft: '2,302', beds: 4, baths: 3.5, stories: 3, garage: 2, price: 'From mid-$500K' },
