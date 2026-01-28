@@ -287,6 +287,22 @@ export default function NewConstructionGuidePage() {
 
       {/* FAQ */}
       <section className="px-6 py-16 bg-stone-900">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: [
+                { '@type': 'Question', name: 'Can I negotiate with builders?', acceptedAnswer: { '@type': 'Answer', text: "Yes! Builders often negotiate on price, upgrades, closing costs, and lot premiums—especially at end of quarter or during slower periods. Having an experienced agent like Dr. Jan Duffy significantly improves your negotiating position." } },
+                { '@type': 'Question', name: "Should I use the builder's lender?", acceptedAnswer: { '@type': 'Answer', text: "Compare offers carefully. Builders often provide significant incentives for using their preferred lender (closing cost credits, rate buy-downs), but rates may be higher. Get quotes from multiple lenders and compare the total cost over the life of the loan." } },
+                { '@type': 'Question', name: 'How long does new construction take?', acceptedAnswer: { '@type': 'Answer', text: "Typically 4-8 months from contract to closing, depending on the builder, time of year, and whether you're buying a spec home or building from scratch. Some move-in ready homes are available immediately." } },
+                { '@type': 'Question', name: 'What if I find issues after moving in?', acceptedAnswer: { '@type': 'Answer', text: 'New homes come with builder warranties—typically 1 year on workmanship, 2 years on systems (electrical, plumbing, HVAC), and 10 years on structural. Document issues promptly and submit warranty claims in writing.' } },
+                { '@type': 'Question', name: 'Can I make changes during construction?', acceptedAnswer: { '@type': 'Answer', text: "Changes become increasingly difficult (and expensive) once construction begins. Most builders have cut-off dates for modifications. It's best to finalize all decisions at the design center before construction starts." } },
+              ],
+            }),
+          }}
+        />
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-2xl font-light md:text-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>

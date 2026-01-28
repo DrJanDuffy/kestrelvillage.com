@@ -14,6 +14,8 @@ export type Community = {
   description: string;
   highlights: string[];
   amenities: string[];
+  /** Verified sales office / model home hours when available (e.g. KB Home). */
+  salesOfficeHours?: string;
 };
 
 export const communities: Community[] = [
@@ -107,7 +109,8 @@ export const communities: Community[] = [
       'Personalize layout and design options',
       'Easy 215 Beltway access'
     ],
-    amenities: ['Gated entry', 'Private neighborhood park', 'Walking paths', 'Near Downtown Summerlin', 'Elevated views', 'Smart thermostats']
+    amenities: ['Gated entry', 'Private neighborhood park', 'Walking paths', 'Near Downtown Summerlin', 'Elevated views', 'Smart thermostats'],
+    salesOfficeHours: 'Mon 1–6pm, Tue–Sun 10am–6pm',
   },
   {
     slug: 'quail-cove',
@@ -130,7 +133,8 @@ export const communities: Community[] = [
       'Planned community park',
       '1 mile to Grand Park'
     ],
-    amenities: ['Three-story living', 'Mountain views', 'Walking paths', 'Planned park', 'Near Downtown Summerlin', 'Easy I-215 access']
+    amenities: ['Three-story living', 'Mountain views', 'Walking paths', 'Planned park', 'Near Downtown Summerlin', 'Easy I-215 access'],
+    salesOfficeHours: 'Mon 1–6pm, Tue–Sun 10am–6pm',
   },
   {
     slug: 'mockingbird',

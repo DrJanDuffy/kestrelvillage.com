@@ -7,12 +7,12 @@ const SITE_URL = 'https://www.kestrelvillage.com';
 export const metadata: Metadata = {
   title: 'Kestrel Village Communities | New Construction Summerlin West',
   description:
-    'Explore 5 Kestrel Village communities in Summerlin West, Las Vegas. Townhomes to single-family homes from $477K. Woodside Homes, Lennar & Pulte.',
+    'Explore 8 Kestrel Village communities in Summerlin West, Las Vegas. Townhomes to single-family homes from $455K. Woodside, KB Home, Taylor Morrison, Lennar & Pulte.',
   alternates: { canonical: `${SITE_URL}/communities` },
   openGraph: {
     title: 'Kestrel Village Communities | New Construction Summerlin West',
     description:
-      'Five distinct neighborhoods offering townhomes to single-family estates. Contemporary Spanish architecture and Summerlin\'s signature quality.',
+      'Eight distinct neighborhoods offering townhomes to single-family estates. Contemporary Spanish architecture and Summerlin\'s signature quality.',
     url: `${SITE_URL}/communities`,
     siteName: 'Kestrel Village',
     locale: 'en_US',
@@ -60,15 +60,23 @@ export default function CommunitiesPage() {
             Kestrel Village <span className="italic text-amber-400">Communities</span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-stone-400">
-            Five distinct neighborhoods offering townhomes to single-family estates.
+            Eight distinct neighborhoods offering townhomes to single-family estates.
             Contemporary Spanish architecture and Summerlin&apos;s signature quality.
           </p>
-          <Link
-            href="/#communities"
-            className="mt-6 inline-block text-sm text-amber-500 hover:text-amber-400 transition-colors"
-          >
-            ← Back to Home
-          </Link>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/#communities"
+              className="text-sm text-amber-500 hover:text-amber-400 transition-colors"
+            >
+              ← Back to Home
+            </Link>
+            <Link
+              href="/compare"
+              className="text-sm text-stone-400 hover:text-amber-400 transition-colors"
+            >
+              Compare communities →
+            </Link>
+          </div>
         </div>
       </header>
 

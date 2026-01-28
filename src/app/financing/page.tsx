@@ -383,6 +383,22 @@ export default function FinancingPage() {
 
       {/* FAQ */}
       <section className="px-6 py-16 bg-stone-900">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: [
+                { '@type': 'Question', name: 'Can I use DPA for new construction?', acceptedAnswer: { '@type': 'Answer', text: "Yes! Nevada Housing Division programs can be used for new construction homes in Kestrel Village. The home must be your primary residence and meet program requirements." } },
+                { '@type': 'Question', name: "What is a 'deferred' second mortgage?", acceptedAnswer: { '@type': 'Answer', text: "Most HIP programs provide DPA as a 30-year second mortgage with no interest and no monthly payments. You only repay it when you sell, refinance, or pay off your first mortgage." } },
+                { '@type': 'Question', name: 'Can I combine DPA with builder incentives?', acceptedAnswer: { '@type': 'Answer', text: "In most cases, yes! Builder closing cost credits can often be combined with DPA programs. We'll help you maximize your benefits." } },
+                { '@type': 'Question', name: 'What income limits apply?', acceptedAnswer: { '@type': 'Answer', text: 'Income limits vary by program and county. For Clark County (Las Vegas), limits range from 80% AMI to $165,000 depending on the program. Contact us for current limits.' } },
+                { '@type': 'Question', name: 'How do I find a HIP-approved lender?', acceptedAnswer: { '@type': 'Answer', text: 'Dr. Jan Duffy works with several HIP-approved lenders who specialize in new construction. Call 702-222-1964 for referrals to lenders experienced with these programs.' } },
+              ],
+            }),
+          }}
+        />
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-2xl font-light md:text-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>

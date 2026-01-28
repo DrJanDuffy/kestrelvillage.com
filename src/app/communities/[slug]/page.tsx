@@ -182,6 +182,22 @@ export default async function CommunityPage({ params }: PageProps) {
           </div>
         </section>
 
+        {community.salesOfficeHours && (
+          <section className="border-b border-stone-800/50 px-6 py-12">
+            <div className="mx-auto max-w-4xl">
+              <h2 className="mb-4 text-sm uppercase tracking-widest text-amber-500">
+                Model Home / Sales Office Hours
+              </h2>
+              <p className="text-stone-300">
+                {community.salesOfficeHours}
+              </p>
+              <p className="mt-2 text-sm text-stone-500">
+                Call Dr. Jan Duffy before your first visit so she can register you with {community.builder}.
+              </p>
+            </div>
+          </section>
+        )}
+
         <section className="border-b border-stone-800/50 px-6 py-16">
           <div className="mx-auto max-w-4xl">
             <h2
