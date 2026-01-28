@@ -7,7 +7,7 @@ import {
   getAllCommunitySlugs,
 } from '@/data/communities';
 
-const SITE_URL = 'https://kestrelvillage.com';
+const SITE_URL = 'https://www.kestrelvillage.com';
 
 type PageProps = {
   params: Promise<{ slug: string }>;

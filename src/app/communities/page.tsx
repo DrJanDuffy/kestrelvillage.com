@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { communities } from '@/data/communities';
 
-const SITE_URL = 'https://kestrelvillage.com';
+const SITE_URL = 'https://www.kestrelvillage.com';
 
 export const metadata: Metadata = {
   title: 'Kestrel Village Communities | New Construction Summerlin West',

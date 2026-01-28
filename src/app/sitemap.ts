@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { getAllCommunitySlugs } from '@/data/communities';
 
-const BASE_URL = 'https://kestrelvillage.com';
+const BASE_URL = 'https://www.kestrelvillage.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const slugs = getAllCommunitySlugs();
