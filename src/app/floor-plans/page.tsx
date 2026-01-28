@@ -73,11 +73,12 @@ const floorPlans = {
     communities: [
       {
         name: 'Blacktail',
-        status: 'Coming Soon',
+        status: 'Now Selling',
         plans: [
-          { name: 'Residence 1', sqft: '2,100', beds: 3, baths: 2.5, stories: 2, garage: 2, price: 'From $590K' },
-          { name: 'Residence 2', sqft: '2,450', beds: 4, baths: 3, stories: 2, garage: 2, price: 'From $640K' },
-          { name: 'Residence 3', sqft: '2,800', beds: 5, baths: 3.5, stories: 2, garage: 3, price: 'From $695K' },
+          { name: 'The Kendall', sqft: '2,338', beds: 3, baths: 2.5, stories: 3, garage: 2, price: 'From $636K' },
+          { name: 'The Hayden', sqft: '2,503', beds: 3, baths: 2.5, stories: 3, garage: 2, price: 'From $642K' },
+          { name: 'The Carson', sqft: '2,473', beds: 3, baths: 2.5, stories: 3, garage: 2, price: 'From $644K' },
+          { name: 'The Peyton', sqft: '2,572', beds: 3, baths: 2.5, stories: 3, garage: 2, price: 'From $649K' },
         ],
       },
     ],
@@ -284,7 +285,7 @@ export default function FloorPlansPage() {
               <h2 className="text-2xl font-light md:text-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Pulte <span className="italic text-blue-400">Homes</span>
               </h2>
-              <p className="text-stone-400 text-sm">Life Tested® Designs • Smart Home Ready</p>
+              <p className="text-stone-400 text-sm">Life Tested® Designs • Three-Story with Rooftop Decks</p>
             </div>
           </div>
 
@@ -319,7 +320,7 @@ export default function FloorPlansPage() {
                       </div>
                     </div>
                     <div className="mt-3 pt-3 border-t border-stone-800 text-xs text-stone-500">
-                      {plan.garage}-car garage • Life Tested®
+                      {plan.garage}-car garage • Rooftop Deck • Life Tested®
                     </div>
                   </div>
                 ))}

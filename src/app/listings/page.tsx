@@ -159,7 +159,7 @@ export default function ListingsPage() {
               { community: 'Vireo', builder: 'Woodside', price: 'From $477K', type: '2-3 Story' },
               { community: 'Dove Rock', builder: 'Woodside', price: 'From $520K', type: 'Townhomes' },
               { community: 'Falcon Crest', builder: 'Woodside', price: 'From $580K', type: 'Single-Story' },
-              { community: 'Blacktail', builder: 'Pulte', price: 'From $590K', type: 'Single-Family' },
+              { community: 'Blacktail', builder: 'Pulte', price: 'From $636K', type: 'Three-Story' },
               { community: 'Mockingbird', builder: 'Lennar', price: 'From $838K', type: 'Two-Story' },
             ].map((item, i) => (
               <Link 

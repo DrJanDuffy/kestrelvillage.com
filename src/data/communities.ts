@@ -90,24 +90,24 @@ export const communities: Community[] = [
     slug: 'blacktail',
     name: 'Blacktail',
     builder: 'Pulte Homes',
-    type: 'Single-Family',
-    sqft: '2,100 - 2,800',
-    beds: '3-5',
+    type: 'Three-Story',
+    sqft: '2,338 - 2,572',
+    beds: '3-4',
     baths: '2.5-3.5',
-    garage: '2-3 car',
-    price: 'From $590K',
-    status: 'Coming Soon',
+    garage: '2-car',
+    price: 'From $636K',
+    status: 'Now Selling',
     units: 95,
-    highlight: 'Life-tested Pulte designs with smart home technology',
-    description: 'Blacktail at Kestrel Village will feature Pulte Homes single-family homes. Expected pricing from $590K. 3–5 beds, 2,100–2,800 sq ft. Life-tested designs, smart home ready. Contact Dr. Jan Duffy for updates.',
+    highlight: 'Three-story homes with rooftop decks in Kestrel Village',
+    description: 'Blacktail at Kestrel Village offers Pulte Homes three-story homes from $635,990. 4 floor plans (Kendall, Carson, Hayden, Peyton) with 3–4 beds, 2,338–2,572 sq ft. Features rooftop decks and Life Tested® designs in Summerlin West.',
     highlights: [
-      'Life-tested Pulte designs',
-      'Smart home ready',
-      'Gated community',
-      '3–5 bedrooms',
-      '2,100–2,800 sq ft'
+      '4 floor plans: Kendall, Carson, Hayden, Peyton',
+      'Three-story homes with rooftop decks',
+      '3–4 bedrooms, 2.5–3.5 baths',
+      '2,338–2,572 sq ft',
+      'Life Tested® Pulte designs'
     ],
-    amenities: ['Smart home technology', 'Energy-efficient construction', 'Gated neighborhood', 'Flex spaces']
+    amenities: ['Rooftop decks', 'Smart home technology', 'Energy-efficient construction', 'Life Tested® floor plans', 'Near Kestrel Creek Arroyo', '200+ miles of Summerlin trails']
   },
   {
     slug: 'vireo',
