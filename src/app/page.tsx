@@ -32,7 +32,7 @@ export default function KestrelVillage() {
               "addressCountry": "US"
             },
             "areaServed": "Kestrel Village, Summerlin West, Las Vegas",
-            "priceRange": "$480,000 - $800,000+"
+            "priceRange": "$477,000 - $900,000+"
           })
         }}
       />
@@ -94,15 +94,15 @@ export default function KestrelVillage() {
 
             <p className="text-xl md:text-2xl text-stone-400 max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-delay-2">
               Panoramic valley views from Las Vegas&apos; most sought-after new village. 
-              New homes from <span className="text-amber-400 font-medium">$480K</span> by Summerlin&apos;s premier builders.
+              New homes from <span className="text-amber-400 font-medium">$477K</span> by Summerlin&apos;s premier builders.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-12 animate-fade-in-delay-3">
               {[
-                { value: '6+', label: 'New Communities' },
-                { value: '5', label: 'Top Builders' },
-                { value: '$480K', label: 'Starting From' },
-                { value: '551+', label: 'New Homes' }
+                { value: '5', label: 'Communities' },
+                { value: '3', label: 'Top Builders' },
+                { value: '$477K', label: 'Starting From' },
+                { value: '463+', label: 'New Homes' }
               ].map((stat, i) => (
                 <div key={i} className="text-center p-4 bg-stone-900/50 rounded-sm border border-stone-800/50">
                   <div className="text-2xl md:text-3xl font-light text-amber-400">{stat.value}</div>
@@ -132,7 +132,7 @@ export default function KestrelVillage() {
             <div className="mt-16 animate-fade-in-delay-4">
               <p className="text-stone-600 text-xs uppercase tracking-widest mb-4">Featuring Homes By</p>
               <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 text-stone-500 text-sm">
-                {['Woodside Homes', 'Pulte Homes', 'Lennar', 'Taylor Morrison', 'Richmond American'].map((b, i) => (
+                {['Woodside Homes', 'Lennar', 'Pulte Homes'].map((b, i) => (
                   <span key={i} className="hover:text-amber-400 transition-colors">{b}</span>
                 ))}
               </div>
@@ -193,7 +193,7 @@ export default function KestrelVillage() {
                 Kestrel Village <span className="text-amber-400 italic">Communities</span>
               </h2>
               <p className="text-stone-400 mt-4 max-w-2xl mx-auto">
-                Six distinct neighborhoods offering townhomes to single-family estates. Contemporary Spanish architecture and Summerlin&apos;s signature quality.
+                Five distinct neighborhoods offering townhomes to single-family estates. Contemporary Spanish architecture and Summerlin&apos;s signature quality.
               </p>
             </div>
 

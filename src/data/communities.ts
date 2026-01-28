@@ -110,29 +110,6 @@ export const communities: Community[] = [
     amenities: ['Smart home technology', 'Energy-efficient construction', 'Gated neighborhood', 'Flex spaces']
   },
   {
-    slug: 'osprey-ridge',
-    name: 'Osprey Ridge',
-    builder: 'Taylor Morrison',
-    type: 'Single-Family',
-    sqft: '2,200 - 3,100',
-    beds: '3-5',
-    baths: '3-4',
-    garage: '3-car',
-    price: 'From $620K',
-    status: 'Now Selling',
-    units: 88,
-    highlight: 'Premium elevated lots, mountain views',
-    description: 'Osprey Ridge at Kestrel Village offers Taylor Morrison single-family homes from $620K. 3–5 beds, 2,200–3,100 sq ft. Premium elevated lots with mountain views in Summerlin West.',
-    highlights: [
-      'Premium elevated lots',
-      'Mountain views',
-      '3–5 bedrooms',
-      '2,200–3,100 sq ft',
-      '3-car garage'
-    ],
-    amenities: ['Elevated view lots', 'Mountain vistas', 'Designer finishes', 'Outdoor kitchens']
-  },
-  {
     slug: 'vireo',
     name: 'Vireo',
     builder: 'Woodside Homes',
