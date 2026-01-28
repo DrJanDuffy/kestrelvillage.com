@@ -5,9 +5,9 @@ const SITE_URL = 'https://www.kestrelvillage.com';
 
 export const metadata: Metadata = {
   title: 'Kestrel Village Floor Plans | New Construction Home Designs',
-  description: 'Browse Kestrel Village floor plans from Woodside Homes, Lennar, and Pulte. Townhomes, single-story, two-story, and NextGen designs. 1,441 to 3,335 sq ft.',
+  description: 'Browse Kestrel Village floor plans from Woodside, Lennar, Pulte, Taylor Morrison, and KB Home. 1,441 to 3,335 sq ft. Townhomes to luxury homes.',
   alternates: { canonical: `${SITE_URL}/floor-plans` },
-  keywords: ['Kestrel Village floor plans', 'Summerlin new construction floor plans', 'Woodside Homes floor plans', 'Lennar NextGen', 'Pulte floor plans'],
+  keywords: ['Kestrel Village floor plans', 'Summerlin new construction floor plans', 'Woodside Homes floor plans', 'Lennar NextGen', 'Pulte floor plans', 'Taylor Morrison', 'KB Home'],
   openGraph: {
     title: 'Kestrel Village Floor Plans | Home Designs',
     description: 'Explore floor plans from 1,441 to 3,335 sq ft in Kestrel Village. Townhomes, single-story, two-story, and NextGen options.',
@@ -79,6 +79,36 @@ const floorPlans = {
           { name: 'The Hayden', sqft: '2,503', beds: 3, baths: 2.5, stories: 3, garage: 2, price: 'From $642K' },
           { name: 'The Carson', sqft: '2,473', beds: 3, baths: 2.5, stories: 3, garage: 2, price: 'From $644K' },
           { name: 'The Peyton', sqft: '2,572', beds: 3, baths: 2.5, stories: 3, garage: 2, price: 'From $649K' },
+        ],
+      },
+    ],
+  },
+  taylorMorrison: {
+    name: 'Taylor Morrison',
+    communities: [
+      {
+        name: 'Crested Canyon',
+        status: 'Now Selling',
+        plans: [
+          { name: 'Plan 1', sqft: '1,649', beds: 3, baths: 2, stories: 2, garage: 2, price: 'From $550K' },
+          { name: 'Plan 2', sqft: '1,850', beds: 3, baths: 2, stories: 2, garage: 2, price: 'From $580K' },
+          { name: 'Plan 3', sqft: '2,050', beds: 4, baths: 2, stories: 3, garage: 2, price: 'From $610K' },
+          { name: 'Plan 4', sqft: '2,242', beds: 4, baths: 2, stories: 3, garage: 2, price: 'From $640K' },
+        ],
+      },
+    ],
+  },
+  kbHome: {
+    name: 'KB Home',
+    communities: [
+      {
+        name: 'Nighthawk',
+        status: 'Now Selling',
+        plans: [
+          { name: 'Plan 1720', sqft: '1,720', beds: 3, baths: 2, stories: 2, garage: 2, price: 'From $480K' },
+          { name: 'Plan 2015', sqft: '2,015', beds: 4, baths: 3, stories: 2, garage: 2, price: 'From $510K' },
+          { name: 'Plan 2240', sqft: '2,240', beds: 4, baths: 3, stories: 2, garage: 2, price: 'From $540K' },
+          { name: 'Plan 2466', sqft: '2,466', beds: 5, baths: 4, stories: 2, garage: 2, price: 'From $570K' },
         ],
       },
     ],
@@ -327,6 +357,123 @@ export default function FloorPlansPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Taylor Morrison */}
+      <section className="px-6 py-16 bg-stone-900">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex items-center gap-4 mb-8">
+            <span className="text-3xl">🏛️</span>
+            <div>
+              <h2 className="text-2xl font-light md:text-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Taylor <span className="italic text-orange-400">Morrison</span>
+              </h2>
+              <p className="text-stone-400 text-sm">Contemporary Spanish Architecture • 9-Foot Ceilings</p>
+            </div>
+          </div>
+
+          {floorPlans.taylorMorrison.communities.map((community, idx) => (
+            <div key={idx} className="mb-12">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-semibold text-stone-100">{community.name}</h3>
+                <span className="text-xs px-3 py-1 rounded-full bg-orange-500/20 text-orange-400">
+                  {community.status}
+                </span>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {community.plans.map((plan, i) => (
+                  <div key={i} className="bg-stone-950 border border-stone-800 rounded-sm p-5 hover:border-orange-500/30 transition-all">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-medium text-stone-100">{plan.name}</h4>
+                      <span className="text-orange-400 font-semibold text-sm">{plan.price}</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div className="flex items-center gap-2 text-stone-400">
+                        <span>📐</span> {plan.sqft} sq ft
+                      </div>
+                      <div className="flex items-center gap-2 text-stone-400">
+                        <span>🛏️</span> {plan.beds} bed
+                      </div>
+                      <div className="flex items-center gap-2 text-stone-400">
+                        <span>🚿</span> {plan.baths} bath
+                      </div>
+                      <div className="flex items-center gap-2 text-stone-400">
+                        <span>🏗️</span> {plan.stories} story
+                      </div>
+                    </div>
+                    <div className="mt-3 pt-3 border-t border-stone-800 text-xs text-stone-500">
+                      {plan.garage}-car garage • 9-ft ceilings • Gated
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* KB Home */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex items-center gap-4 mb-8">
+            <span className="text-3xl">🏗️</span>
+            <div>
+              <h2 className="text-2xl font-light md:text-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>
+                KB <span className="italic text-cyan-400">Home</span>
+              </h2>
+              <p className="text-stone-400 text-sm">Built to Order® • WaterSense® Certified • Kestrel Commons</p>
+            </div>
+          </div>
+
+          {floorPlans.kbHome.communities.map((community, idx) => (
+            <div key={idx} className="mb-12">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-semibold text-stone-100">{community.name}</h3>
+                <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400">
+                  {community.status}
+                </span>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {community.plans.map((plan, i) => (
+                  <div key={i} className="bg-stone-900/50 border border-stone-800 rounded-sm p-5 hover:border-cyan-500/30 transition-all">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-medium text-stone-100">{plan.name}</h4>
+                      <span className="text-cyan-400 font-semibold text-sm">{plan.price}</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div className="flex items-center gap-2 text-stone-400">
+                        <span>📐</span> {plan.sqft} sq ft
+                      </div>
+                      <div className="flex items-center gap-2 text-stone-400">
+                        <span>🛏️</span> {plan.beds} bed
+                      </div>
+                      <div className="flex items-center gap-2 text-stone-400">
+                        <span>🚿</span> {plan.baths} bath
+                      </div>
+                      <div className="flex items-center gap-2 text-stone-400">
+                        <span>🏗️</span> {plan.stories} story
+                      </div>
+                    </div>
+                    <div className="mt-3 pt-3 border-t border-stone-800 text-xs text-stone-500">
+                      {plan.garage}-car garage • WaterSense® • Loft Available
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Kestrel Commons Note */}
+          <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-sm p-6 mt-8">
+            <h3 className="text-lg font-semibold text-cyan-400 mb-2">Kestrel Commons</h3>
+            <p className="text-stone-400 text-sm">
+              Nighthawk is located in Kestrel Commons, just below Kestrel Village at Lake Mead Blvd. and the 215 Beltway. 
+              This area offers an urban atmosphere with walking paths, hiking/biking trails, and park access.
+            </p>
+          </div>
         </div>
       </section>
 

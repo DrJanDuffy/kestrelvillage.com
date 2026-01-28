@@ -4,12 +4,12 @@ import Link from 'next/link';
 const SITE_URL = 'https://www.kestrelvillage.com';
 
 export const metadata: Metadata = {
-  title: 'Kestrel Village Builders | Woodside, Lennar, Pulte Homes',
-  description: 'Learn about Kestrel Village builders: Woodside Homes, Lennar, and Pulte Homes. Compare floor plans, features, and pricing. New construction from $477K in Summerlin West.',
+  title: 'Kestrel Village Builders | Woodside, Lennar, Pulte, Taylor Morrison, KB Home',
+  description: 'Learn about Kestrel Village builders: Woodside Homes, Lennar, Pulte Homes, Taylor Morrison, and KB Home. Compare floor plans, features, and pricing from $477K.',
   alternates: { canonical: `${SITE_URL}/builders` },
   openGraph: {
-    title: 'Kestrel Village Builders | Woodside, Lennar, Pulte',
-    description: 'Compare builders in Kestrel Village: Woodside Homes, Lennar (NextGen suites), and Pulte Homes. New construction from $477K.',
+    title: 'Kestrel Village Builders | 5 Premier Homebuilders',
+    description: 'Compare builders in Kestrel Village: Woodside, Lennar, Pulte, Taylor Morrison, and KB Home. New construction from $477K.',
     url: `${SITE_URL}/builders`,
     siteName: 'Kestrel Village',
     locale: 'en_US',
@@ -27,7 +27,7 @@ const builders = [
     communities: [
       { name: 'Dove Rock', status: 'Now Preselling', price: 'From $520K', type: 'Townhomes', link: '/communities/dove-rock' },
       { name: 'Vireo', status: 'Final Opportunity', price: 'From $477K', type: '2-3 Story', link: '/communities/vireo' },
-      { name: 'Falcon Crest', status: 'Coming Soon', price: 'From $580K', type: 'Single-Story', link: '/communities/falcon-crest' },
+      { name: 'Falcon Crest', status: 'Now Selling', price: 'From $580K', type: 'Single-Story', link: '/communities/falcon-crest' },
     ],
     features: [
       'Energy Star® certified homes',
@@ -37,6 +37,23 @@ const builders = [
       '10-year structural warranty',
     ],
     website: 'https://www.woodsidehomes.com',
+  },
+  {
+    name: 'Taylor Morrison',
+    logo: '🏛️',
+    tagline: 'Contemporary Spanish Architecture',
+    description: 'Taylor Morrison brings contemporary Spanish architecture to Kestrel Village with their Crested Canyon community. Known for quality craftsmanship, innovative designs, and healthy home features. One of America\'s most trusted homebuilders.',
+    communities: [
+      { name: 'Crested Canyon', status: 'Now Selling', price: 'From $550K', type: '2-3 Story', link: '/communities/crested-canyon' },
+    ],
+    features: [
+      'Contemporary Spanish architecture',
+      '9-foot ceilings throughout',
+      'Rooftop decks on 3-story plans',
+      'Healthy home products',
+      'Secure gated community',
+    ],
+    website: 'https://www.taylormorrison.com',
   },
   {
     name: 'Lennar',
@@ -61,16 +78,33 @@ const builders = [
     tagline: 'Life Tested® Designs',
     description: 'Pulte Homes builds Life Tested® homes designed around how people actually live. With 70+ years of experience, Pulte focuses on smart design, quality construction, and innovative features that adapt to your lifestyle.',
     communities: [
-      { name: 'Blacktail', status: 'Coming Soon', price: 'From $590K', type: 'Single-Family', link: '/communities/blacktail' },
+      { name: 'Blacktail', status: 'Now Selling', price: 'From $636K', type: 'Three-Story', link: '/communities/blacktail' },
     ],
     features: [
       'Life Tested® floor plans',
+      'Rooftop decks',
       'Built-in smart home features',
       'Energy-efficient construction',
-      'Flex spaces for work/life',
       'PulteGroup Quality Promise',
     ],
     website: 'https://www.pulte.com',
+  },
+  {
+    name: 'KB Home',
+    logo: '🏗️',
+    tagline: 'Built to Order®',
+    description: 'KB Home offers personalized homes in Kestrel Commons with their Built to Order® approach. Known for energy efficiency, WaterSense® certification, and allowing buyers to choose their own finishes and features.',
+    communities: [
+      { name: 'Nighthawk', status: 'Now Selling', price: 'From $480K', type: 'Two-Story', link: '/communities/nighthawk' },
+    ],
+    features: [
+      'Built to Order® personalization',
+      'WaterSense® labeled homes',
+      'ENERGY STAR® certified',
+      'Walk-in kitchen pantry',
+      'Loft spaces available',
+    ],
+    website: 'https://www.kbhome.com',
   },
 ];
 
@@ -103,7 +137,7 @@ export default function BuildersPage() {
             Kestrel Village <span className="italic text-amber-400">Builders</span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-stone-400 text-lg">
-            Three of America&apos;s most trusted homebuilders are creating new communities in Kestrel Village. 
+            Five of America&apos;s most trusted homebuilders are creating new communities in Kestrel Village and Kestrel Commons. 
             Each brings unique designs, features, and value to Summerlin West.
           </p>
         </div>
@@ -228,20 +262,32 @@ export default function BuildersPage() {
                 <tr className="border-b border-stone-800/50">
                   <td className="py-4 px-4 text-stone-100">Woodside Homes</td>
                   <td className="py-4 px-4 text-amber-400">From $477K</td>
-                  <td className="py-4 px-4 text-stone-300">Townhomes, 2-3 Story</td>
+                  <td className="py-4 px-4 text-stone-300">Townhomes, 1-3 Story</td>
                   <td className="py-4 px-4 text-stone-400">Energy Star® Certified</td>
+                </tr>
+                <tr className="border-b border-stone-800/50">
+                  <td className="py-4 px-4 text-stone-100">KB Home</td>
+                  <td className="py-4 px-4 text-amber-400">From $480K</td>
+                  <td className="py-4 px-4 text-stone-300">Two-Story</td>
+                  <td className="py-4 px-4 text-stone-400">Built to Order®</td>
+                </tr>
+                <tr className="border-b border-stone-800/50">
+                  <td className="py-4 px-4 text-stone-100">Taylor Morrison</td>
+                  <td className="py-4 px-4 text-amber-400">From $550K</td>
+                  <td className="py-4 px-4 text-stone-300">2-3 Story</td>
+                  <td className="py-4 px-4 text-stone-400">Spanish Architecture</td>
+                </tr>
+                <tr className="border-b border-stone-800/50">
+                  <td className="py-4 px-4 text-stone-100">Pulte Homes</td>
+                  <td className="py-4 px-4 text-amber-400">From $636K</td>
+                  <td className="py-4 px-4 text-stone-300">Three-Story</td>
+                  <td className="py-4 px-4 text-stone-400">Rooftop Decks</td>
                 </tr>
                 <tr className="border-b border-stone-800/50">
                   <td className="py-4 px-4 text-stone-100">Lennar</td>
                   <td className="py-4 px-4 text-amber-400">From $838K</td>
                   <td className="py-4 px-4 text-stone-300">Two-Story</td>
                   <td className="py-4 px-4 text-stone-400">NextGen® Suites</td>
-                </tr>
-                <tr className="border-b border-stone-800/50">
-                  <td className="py-4 px-4 text-stone-100">Pulte Homes</td>
-                  <td className="py-4 px-4 text-amber-400">From $590K</td>
-                  <td className="py-4 px-4 text-stone-300">Single-Family</td>
-                  <td className="py-4 px-4 text-stone-400">Life Tested® Design</td>
                 </tr>
               </tbody>
             </table>
