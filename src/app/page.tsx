@@ -260,46 +260,79 @@ export default function KestrelVillage() {
           </div>
         </section>
 
-        {/* Active Listings - RealScout Widget */}
+        {/* Active Listings - RealScout Widget (Primary Lead Generator) */}
         <section id="listings" className="py-24 px-6 bg-gradient-to-b from-stone-900 to-stone-950">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <span className="text-amber-500 text-sm uppercase tracking-widest">MLS Listings</span>
+              <span className="text-amber-500 text-sm uppercase tracking-widest">Live MLS Listings</span>
               <h2 className="text-3xl md:text-5xl font-light mt-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Active <span className="text-amber-400 italic">Kestrel Village</span> Homes
+                Homes for Sale in <span className="text-amber-400 italic">Kestrel Village</span>
               </h2>
               <p className="text-stone-400 mt-4 max-w-2xl mx-auto">
-                Search current listings in Kestrel Village and surrounding Summerlin communities. Updated in real-time from the MLS.
+                Browse current listings updated in real-time from the MLS. Click any home to see details, photos, and schedule a private tour.
               </p>
             </div>
 
-            <div className="bg-stone-900/50 border border-stone-800 rounded-sm p-6 md:p-8">
+            {/* Call to Action Banner */}
+            <div className="bg-amber-500/10 border border-amber-500/30 rounded-sm p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-amber-500/20 rounded-full flex items-center justify-center">
+                  <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+                </div>
+                <p className="text-stone-300 text-sm">
+                  <strong className="text-amber-400">Register before visiting!</strong> Builders require agent registration on your first visit.
+                </p>
+              </div>
+              <a 
+                href="tel:7022221964"
+                className="flex-shrink-0 px-6 py-2 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors text-sm"
+              >
+                Call First: 702-222-1964
+              </a>
+            </div>
+
+            {/* RealScout Office Listings Widget */}
+            <div className="bg-white rounded-sm overflow-hidden shadow-xl">
               <div 
                 dangerouslySetInnerHTML={{
-                  __html: `<realscout-simple-search 
+                  __html: `<realscout-office-listings 
                     agent-encoded-id="QWdlbnQtMjI1MDUw"
-                    search-type="buy"
+                    sort-order="NEWEST"
+                    listing-status="For Sale"
+                    property-types=",SFR,MF,TC"
                     price-min="400000"
-                    price-max="1500000"
-                    market="Las Vegas"
-                  ></realscout-simple-search>`
+                    price-max="1000000"
+                  ></realscout-office-listings>`
                 }}
               />
             </div>
 
             <div className="mt-8 text-center">
-              <p className="text-stone-500 text-sm">
-                Powered by RealScout MLS • Updated every 15 minutes
+              <p className="text-stone-500 text-sm mb-4">
+                Powered by GLVAR MLS • Updated every 15 minutes
               </p>
-              <a 
-                href="tel:7022221964"
-                className="inline-flex items-center gap-2 mt-4 text-amber-400 hover:text-amber-300 transition-colors"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                Questions? Call Dr. Jan Duffy: 702-222-1964
-              </a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="tel:7022221964"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  Schedule Private Tour: 702-222-1964
+                </a>
+                <a 
+                  href="mailto:jan@drjanduffy.com"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-stone-700 text-stone-300 rounded-sm hover:border-amber-500/50 hover:text-amber-400 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  Email Dr. Jan Duffy
+                </a>
+              </div>
             </div>
           </div>
         </section>

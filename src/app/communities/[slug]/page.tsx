@@ -225,6 +225,59 @@ export default async function CommunityPage({ params }: PageProps) {
           </div>
         </section>
 
+        {/* Active Listings - RealScout Widget */}
+        <section className="border-b border-stone-800/50 bg-gradient-to-b from-stone-900 to-stone-950 px-6 py-16">
+          <div className="mx-auto max-w-6xl">
+            <div className="text-center mb-10">
+              <p className="text-xs uppercase tracking-widest text-amber-500">
+                Live MLS Listings
+              </p>
+              <h2
+                className="mt-4 text-2xl font-light md:text-3xl"
+                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+              >
+                Available Homes in <span className="italic text-amber-400">{community.name}</span>
+              </h2>
+              <p className="mt-4 text-stone-400">
+                Current listings updated in real-time from the MLS. Click any home to see details.
+              </p>
+            </div>
+
+            {/* Registration Reminder */}
+            <div className="bg-amber-500/10 border border-amber-500/30 rounded-sm p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+              <p className="text-stone-300 text-sm text-center md:text-left">
+                <strong className="text-amber-400">First visit?</strong> Call Dr. Jan Duffy before touring to ensure you&apos;re registered with {community.builder}.
+              </p>
+              <a 
+                href="tel:7022221964"
+                className="flex-shrink-0 px-6 py-2 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors text-sm whitespace-nowrap"
+              >
+                Call: 702-222-1964
+              </a>
+            </div>
+
+            {/* RealScout Widget */}
+            <div className="bg-white rounded-sm overflow-hidden shadow-xl">
+              <div 
+                dangerouslySetInnerHTML={{
+                  __html: `<realscout-office-listings 
+                    agent-encoded-id="QWdlbnQtMjI1MDUw"
+                    sort-order="NEWEST"
+                    listing-status="For Sale"
+                    property-types=",SFR,MF,TC"
+                    price-min="400000"
+                    price-max="1000000"
+                  ></realscout-office-listings>`
+                }}
+              />
+            </div>
+
+            <p className="mt-6 text-center text-stone-500 text-sm">
+              Powered by GLVAR MLS • Updated every 15 minutes
+            </p>
+          </div>
+        </section>
+
         <section className="px-6 py-16">
           <div className="mx-auto max-w-4xl">
             <div className="rounded-sm border border-amber-500/20 bg-gradient-to-br from-amber-500/10 via-stone-900 to-stone-900 p-8 md:p-12">

@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* RealScout Widget Styles */
+realscout-office-listings {
+  --rs-listing-divider-color: #f59e0b;
+  width: 100%;
+  display: block;
+}
+
+realscout-simple-search {
+  width: 100%;
+  display: block;
+}
+
 :root {
   --background: #0c0a09;
   --foreground: #fafaf9;

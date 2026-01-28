@@ -7,12 +7,12 @@ const SITE_URL = 'https://www.kestrelvillage.com';
 export const metadata: Metadata = {
   title: 'Kestrel Village Communities | New Construction Summerlin West',
   description:
-    'Explore 6 Kestrel Village communities in Summerlin West, Las Vegas. Townhomes to single-family homes from $480K. Woodside, Pulte, Lennar, Taylor Morrison.',
+    'Explore 5 Kestrel Village communities in Summerlin West, Las Vegas. Townhomes to single-family homes from $477K. Woodside Homes, Lennar & Pulte.',
   alternates: { canonical: `${SITE_URL}/communities` },
   openGraph: {
     title: 'Kestrel Village Communities | New Construction Summerlin West',
     description:
-      'Six distinct neighborhoods offering townhomes to single-family estates. Contemporary Spanish architecture and Summerlin\'s signature quality.',
+      'Five distinct neighborhoods offering townhomes to single-family estates. Contemporary Spanish architecture and Summerlin\'s signature quality.',
     url: `${SITE_URL}/communities`,
     siteName: 'Kestrel Village',
     locale: 'en_US',
@@ -60,7 +60,7 @@ export default function CommunitiesPage() {
             Kestrel Village <span className="italic text-amber-400">Communities</span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-stone-400">
-            Six distinct neighborhoods offering townhomes to single-family estates.
+            Five distinct neighborhoods offering townhomes to single-family estates.
             Contemporary Spanish architecture and Summerlin&apos;s signature quality.
           </p>
           <Link
@@ -148,6 +148,61 @@ export default function CommunitiesPage() {
                 </Link>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Active Listings - RealScout Widget */}
+      <section className="border-t border-stone-800 bg-gradient-to-b from-stone-900 to-stone-950 px-6 py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-widest text-amber-500">
+              Live MLS Listings
+            </p>
+            <h2
+              className="mt-4 text-3xl font-light md:text-4xl"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              Active Homes <span className="italic text-amber-400">for Sale</span>
+            </h2>
+            <p className="mt-4 text-stone-400">
+              Browse current Kestrel Village listings updated in real-time from the MLS.
+            </p>
+          </div>
+
+          {/* Registration Reminder */}
+          <div className="bg-amber-500/10 border border-amber-500/30 rounded-sm p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-stone-300 text-sm text-center md:text-left">
+              <strong className="text-amber-400">Important:</strong> Register with Dr. Jan Duffy before your first builder visit to ensure representation.
+            </p>
+            <a 
+              href="tel:7022221964"
+              className="flex-shrink-0 px-6 py-2 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors text-sm whitespace-nowrap"
+            >
+              Call First: 702-222-1964
+            </a>
+          </div>
+
+          {/* RealScout Widget */}
+          <div className="bg-white rounded-sm overflow-hidden shadow-xl">
+            <div 
+              dangerouslySetInnerHTML={{
+                __html: `<realscout-office-listings 
+                  agent-encoded-id="QWdlbnQtMjI1MDUw"
+                  sort-order="NEWEST"
+                  listing-status="For Sale"
+                  property-types=",SFR,MF,TC"
+                  price-min="400000"
+                  price-max="1000000"
+                ></realscout-office-listings>`
+              }}
+            />
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-stone-500 text-sm mb-4">
+              Powered by GLVAR MLS • Updated every 15 minutes
+            </p>
           </div>
         </div>
       </section>
