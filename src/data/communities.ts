@@ -22,23 +22,23 @@ export const communities: Community[] = [
     name: 'Dove Rock',
     builder: 'Woodside Homes',
     type: 'Townhomes',
-    sqft: '1,716 - 2,217',
+    sqft: '1,724 - 2,217',
     beds: '2-4',
     baths: '2.5',
     garage: '2-car',
     price: 'From $520K',
-    status: 'Now Selling',
+    status: 'Now Preselling',
     units: 67,
-    highlight: 'Community pool, modern Spanish architecture',
-    description: 'Dove Rock at Kestrel Village offers Woodside Homes townhomes from $520K. 2–4 beds, 1,716–2,217 sq ft. Community pool and modern Spanish architecture in Summerlin West.',
+    highlight: 'Community pool, master-planned Summerlin lifestyle',
+    description: 'Dove Rock in Summerlin offers Woodside Homes townhomes from $519,990. 4 floor plans (Arden, Briar, Cora, Haven) with 2–4 beds, 1,724–2,217 sq ft. Community pool, near Red Rock Canyon, Downtown Summerlin, and TPC golf.',
     highlights: [
       'Community pool',
-      'Modern Spanish architecture',
-      '2–4 bedrooms',
-      '1,716–2,217 sq ft',
-      '2-car garage'
+      'Master-planned Summerlin community',
+      '4 floor plans: Arden, Briar, Cora, Haven',
+      '2–4 bedrooms, 1,724–2,217 sq ft',
+      'Near Red Rock Canyon & Downtown Summerlin'
     ],
-    amenities: ['Pool', 'HOA-maintained landscaping', 'Covered patios', 'Open floor plans']
+    amenities: ['Community pool', '200+ miles of trails', 'Near TPC Summerlin golf', 'Downtown Summerlin shopping', 'Energy-efficient features', '26 top-rated schools nearby']
   },
   {
     slug: 'falcon-crest',
