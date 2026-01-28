@@ -211,7 +211,12 @@ export default function KestrelVillage() {
                           <span className="text-xs text-amber-500 uppercase tracking-wider">{n.builder}</span>
                           <h3 className="text-2xl font-light text-stone-100 mt-1" style={{ fontFamily: "'Playfair Display', serif" }}>{n.name}</h3>
                         </div>
-                        <span className={`text-xs px-3 py-1 rounded-full ${n.status === 'Now Selling' ? 'bg-green-500/20 text-green-400' : n.status === 'Move-In Ready' ? 'bg-amber-500/20 text-amber-400' : 'bg-stone-700 text-stone-400'}`}>
+                        <span className={`text-xs px-3 py-1 rounded-full ${
+                          n.status === 'Now Selling' || n.status === 'Now Preselling' ? 'bg-green-500/20 text-green-400' : 
+                          n.status === 'Move-In Ready' || n.status === 'Final Opportunity' ? 'bg-amber-500/20 text-amber-400' : 
+                          n.status === 'Coming Soon' ? 'bg-blue-500/20 text-blue-400' :
+                          'bg-stone-700 text-stone-400'
+                        }`}>
                           {n.status}
                         </span>
                       </div>
@@ -364,6 +369,172 @@ export default function KestrelVillage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section with Schema */}
+        <section id="faq" className="py-24 px-6 bg-gradient-to-b from-stone-950 to-stone-900">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "What is Kestrel Village?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Kestrel Village is a new master-planned community in Summerlin West, Las Vegas, featuring new construction homes from top builders including Woodside Homes, Lennar, and Pulte Homes. Homes range from $477K to $900K+."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Do I need a real estate agent to buy new construction?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "While not required, having your own agent is highly recommended. Builders require agent registration on your FIRST visit. If you visit alone, the builder's sales rep becomes your representative. Your agent (like Dr. Jan Duffy) works exclusively for YOU, negotiating upgrades, credits, and reviewing contracts at no extra cost."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What builders are in Kestrel Village?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Kestrel Village features homes by Woodside Homes (Dove Rock, Vireo, Falcon Crest), Lennar (Mockingbird with NextGen suites), and Pulte Homes (Blacktail). Prices range from $477K for Vireo townhomes to $838K+ for Mockingbird single-family homes."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Where is Kestrel Village located?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Kestrel Village is located in Summerlin West, Las Vegas, NV 89138, at an elevation of 3,000+ feet. It's minutes from Red Rock Canyon, Downtown Summerlin, TPC Summerlin golf course, and top-rated schools."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How do I schedule a tour of Kestrel Village?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Call or text Dr. Jan Duffy at 702-222-1964 BEFORE visiting any model homes. She'll meet you there and ensure you're properly registered with the builder, protecting your right to buyer representation."
+                    }
+                  }
+                ]
+              })
+            }}
+          />
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="text-amber-500 text-sm uppercase tracking-widest">Common Questions</span>
+              <h2 className="text-3xl md:text-5xl font-light mt-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Kestrel Village <span className="text-amber-400 italic">FAQ</span>
+              </h2>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                {
+                  q: "What is Kestrel Village?",
+                  a: "Kestrel Village is a new master-planned community in Summerlin West, Las Vegas, featuring new construction homes from top builders including Woodside Homes, Lennar, and Pulte Homes. Homes range from $477K to $900K+."
+                },
+                {
+                  q: "Do I need a real estate agent to buy new construction?",
+                  a: "While not required, having your own agent is highly recommended. Builders require agent registration on your FIRST visit. If you visit alone, the builder's sales rep becomes your representative. Your agent (like Dr. Jan Duffy) works exclusively for YOU, negotiating upgrades, credits, and reviewing contracts at no extra cost."
+                },
+                {
+                  q: "What builders are in Kestrel Village?",
+                  a: "Kestrel Village features homes by Woodside Homes (Dove Rock, Vireo, Falcon Crest), Lennar (Mockingbird with NextGen suites), and Pulte Homes (Blacktail). Prices range from $477K for Vireo townhomes to $838K+ for Mockingbird single-family homes."
+                },
+                {
+                  q: "Where is Kestrel Village located?",
+                  a: "Kestrel Village is located in Summerlin West, Las Vegas, NV 89138, at an elevation of 3,000+ feet. It's minutes from Red Rock Canyon, Downtown Summerlin, TPC Summerlin golf course, and top-rated schools."
+                },
+                {
+                  q: "How do I schedule a tour of Kestrel Village?",
+                  a: "Call or text Dr. Jan Duffy at 702-222-1964 BEFORE visiting any model homes. She'll meet you there and ensure you're properly registered with the builder, protecting your right to buyer representation."
+                }
+              ].map((faq, i) => (
+                <details key={i} className="group bg-stone-900/50 border border-stone-800 rounded-sm">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
+                    <h3 className="text-lg font-medium text-stone-100 pr-4">{faq.q}</h3>
+                    <span className="text-amber-500 group-open:rotate-180 transition-transform">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div className="px-6 pb-6">
+                    <p className="text-stone-400 leading-relaxed">{faq.a}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Location Map */}
+        <section id="location" className="py-24 px-6 bg-stone-900">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="text-amber-500 text-sm uppercase tracking-widest">Find Us</span>
+              <h2 className="text-3xl md:text-5xl font-light mt-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Kestrel Village <span className="text-amber-400 italic">Location</span>
+              </h2>
+              <p className="text-stone-400 mt-4">
+                Summerlin West, Las Vegas, NV 89138 • 3,000+ ft elevation with panoramic valley views
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="rounded-sm overflow-hidden border border-stone-800 h-[400px]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12889.847361817894!2d-115.33559635!3d36.2467995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8bf3b2b3d3b3b%3A0x3b3b3b3b3b3b3b3b!2sKestrel%20Village%2C%20Las%20Vegas%2C%20NV%2089138!5e0!3m2!1sen!2sus!4v1706000000000!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Kestrel Village Location Map"
+                />
+              </div>
+              <div className="flex flex-col justify-center space-y-6">
+                <div className="bg-stone-950 border border-stone-800 rounded-sm p-6">
+                  <h3 className="text-lg font-semibold text-stone-100 mb-4">Getting Here</h3>
+                  <ul className="space-y-3 text-stone-400">
+                    <li className="flex items-start gap-3">
+                      <span className="text-amber-500">•</span>
+                      <span>From I-215: Exit at Far Hills Ave, head north into Summerlin West</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-amber-500">•</span>
+                      <span>From Downtown Summerlin: 10 minutes west via Charleston Blvd</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-amber-500">•</span>
+                      <span>From Red Rock Canyon: 5 minutes east on Charleston Blvd</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-amber-500/10 border border-amber-500/30 rounded-sm p-6">
+                  <h3 className="text-lg font-semibold text-amber-400 mb-2">VIP Tour</h3>
+                  <p className="text-stone-300 text-sm mb-4">
+                    Don&apos;t visit model homes alone! Call first and I&apos;ll meet you there.
+                  </p>
+                  <a 
+                    href="tel:7022221964"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    702-222-1964
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>

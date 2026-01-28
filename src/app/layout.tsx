@@ -51,6 +51,70 @@ export const metadata: Metadata = {
   },
 };
 
+// LocalBusiness Schema for GBP optimization
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Dr. Jan Duffy - Kestrel Village Specialist",
+  "image": "https://www.kestrelvillage.com/dr-jan-duffy.jpg",
+  "description": "Expert REALTOR® specializing in Kestrel Village new construction homes in Summerlin West, Las Vegas. 30+ years experience, Ph.D. in Market Research.",
+  "url": "https://www.kestrelvillage.com",
+  "telephone": "+1-702-222-1964",
+  "email": "jan@drjanduffy.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Summerlin West",
+    "addressLocality": "Las Vegas",
+    "addressRegion": "NV",
+    "postalCode": "89138",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 36.2468,
+    "longitude": -115.3280
+  },
+  "areaServed": [
+    {
+      "@type": "Place",
+      "name": "Kestrel Village"
+    },
+    {
+      "@type": "Place", 
+      "name": "Summerlin West"
+    },
+    {
+      "@type": "Place",
+      "name": "Las Vegas"
+    }
+  ],
+  "priceRange": "$477,000 - $900,000+",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "08:00",
+      "closes": "20:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.bhhsnv.com/drjanduffy"
+  ],
+  "memberOf": {
+    "@type": "Organization",
+    "name": "Berkshire Hathaway HomeServices Nevada Properties"
+  },
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Real Estate License",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "Nevada Real Estate Division"
+    },
+    "name": "REALTOR® S.0197614.LLC"
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -58,6 +122,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      </head>
       <body
         className={`${dmSans.variable} ${playfair.variable} font-sans antialiased`}
       >
