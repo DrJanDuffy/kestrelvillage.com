@@ -88,12 +88,12 @@ const floorPlans = {
     communities: [
       {
         name: 'Crested Canyon',
-        status: 'Now Selling',
+        status: 'Sold Out',
         plans: [
-          { name: 'Plan 1', sqft: '1,649', beds: 3, baths: 2, stories: 2, garage: 2, price: 'From $550K' },
-          { name: 'Plan 2', sqft: '1,850', beds: 3, baths: 2, stories: 2, garage: 2, price: 'From $580K' },
-          { name: 'Plan 3', sqft: '2,050', beds: 4, baths: 2, stories: 3, garage: 2, price: 'From $610K' },
-          { name: 'Plan 4', sqft: '2,242', beds: 4, baths: 2, stories: 3, garage: 2, price: 'From $640K' },
+          { name: 'Plan 1', sqft: '1,649', beds: 3, baths: 2, stories: 2, garage: 2, price: 'Sold Out' },
+          { name: 'Plan 2', sqft: '1,850', beds: 3, baths: 2, stories: 2, garage: 2, price: 'Sold Out' },
+          { name: 'Plan 3', sqft: '2,050', beds: 4, baths: 2, stories: 3, garage: 2, price: 'Sold Out' },
+          { name: 'Plan 4', sqft: '2,242', beds: 4, baths: 2, stories: 3, garage: 2, price: 'Sold Out' },
         ],
       },
     ],
@@ -377,7 +377,7 @@ export default function FloorPlansPage() {
             <div key={idx} className="mb-12">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-xl font-semibold text-stone-100">{community.name}</h3>
-                <span className="text-xs px-3 py-1 rounded-full bg-orange-500/20 text-orange-400">
+                <span className={`text-xs px-3 py-1 rounded-full ${community.status === 'Sold Out' ? 'bg-stone-700 text-stone-400' : 'bg-orange-500/20 text-orange-400'}`}>
                   {community.status}
                 </span>
               </div>

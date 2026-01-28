@@ -72,17 +72,17 @@ export const communities: Community[] = [
     beds: '3-4',
     baths: '2',
     garage: '2-car',
-    price: 'From $550K',
-    status: 'Now Selling',
+    price: 'Sold Out',
+    status: 'Sold Out',
     units: 85,
-    highlight: 'Gated community with rooftop decks and 9-foot ceilings',
-    description: 'Crested Canyon at Kestrel Village offers Taylor Morrison 2–3 story homes. Secure gated community close to Downtown Summerlin, dining, and outdoor recreation. 3–4 beds, 1,649–2,242 sq ft with 9-foot ceilings and rooftop decks on 3-story plans.',
+    highlight: 'Gated community with rooftop decks and 9-foot ceilings - SOLD OUT',
+    description: 'Crested Canyon at Kestrel Village by Taylor Morrison is SOLD OUT. This secure gated community featured 2–3 story homes with 3–4 beds, 1,649–2,242 sq ft, 9-foot ceilings, and rooftop decks. Contact Dr. Jan Duffy for resale opportunities.',
     highlights: [
+      'SOLD OUT - Contact for resales',
       'Secure gated community',
       '9-foot ceilings throughout',
       'Rooftop decks on 3-story plans',
-      'Healthy home products in all models',
-      '15-minute commute to downtown Las Vegas'
+      'Healthy home products'
     ],
     amenities: ['Gated entry', '9-foot ceilings', 'Rooftop decks', 'Healthy home products', 'Near Downtown Summerlin', 'Contemporary Spanish architecture']
   },

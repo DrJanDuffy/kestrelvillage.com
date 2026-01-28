@@ -42,9 +42,9 @@ const builders = [
     name: 'Taylor Morrison',
     logo: '🏛️',
     tagline: 'Contemporary Spanish Architecture',
-    description: 'Taylor Morrison brings contemporary Spanish architecture to Kestrel Village with their Crested Canyon community. Known for quality craftsmanship, innovative designs, and healthy home features. One of America\'s most trusted homebuilders.',
+    description: 'Taylor Morrison brought contemporary Spanish architecture to Kestrel Village with their Crested Canyon community. Known for quality craftsmanship, innovative designs, and healthy home features. Crested Canyon is now sold out—contact Dr. Jan Duffy for resale opportunities.',
     communities: [
-      { name: 'Crested Canyon', status: 'Now Selling', price: 'From $550K', type: '2-3 Story', link: '/communities/crested-canyon' },
+      { name: 'Crested Canyon', status: 'Sold Out', price: 'Resales Only', type: '2-3 Story', link: '/communities/crested-canyon' },
     ],
     features: [
       'Contemporary Spanish architecture',
@@ -273,7 +273,7 @@ export default function BuildersPage() {
                 </tr>
                 <tr className="border-b border-stone-800/50">
                   <td className="py-4 px-4 text-stone-100">Taylor Morrison</td>
-                  <td className="py-4 px-4 text-amber-400">From $550K</td>
+                  <td className="py-4 px-4 text-stone-500">Sold Out</td>
                   <td className="py-4 px-4 text-stone-300">2-3 Story</td>
                   <td className="py-4 px-4 text-stone-400">Spanish Architecture</td>
                 </tr>
