@@ -28,6 +28,10 @@ const nextConfig: NextConfig = {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
           },
+          {
+            key: "Content-Security-Policy",
+            value: "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://em.realscout.com https://www.realscout.com https://www.google-analytics.com https://analytics.google.com; frame-src 'self' https://em.realscout.com https://www.realscout.com;",
+          },
         ],
       },
       {

@@ -22,13 +22,13 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Kestrel Village New Homes | Summerlin West Las Vegas | Dr. Jan Duffy",
-  description: "Explore Kestrel Village new construction homes in Summerlin West, Las Vegas. 6+ communities from $480K by Woodside, Pulte, Lennar & Taylor Morrison. Call Dr. Jan Duffy 702-222-1964 for VIP tours.",
-  keywords: "Kestrel Village, Summerlin West homes, Las Vegas new construction, Woodside Homes, Pulte Homes, Lennar, Taylor Morrison, Dr. Jan Duffy, 89138",
+  description: "Explore Kestrel Village new construction homes in Summerlin West, Las Vegas. 5 communities from $477K by Woodside Homes, Lennar & Pulte. Call Dr. Jan Duffy 702-222-1964 for VIP tours.",
+  keywords: "Kestrel Village, Summerlin West homes, Las Vegas new construction, Woodside Homes, Pulte Homes, Lennar, Dr. Jan Duffy, 89138",
   authors: [{ name: "Dr. Jan Duffy" }],
   metadataBase: new URL("https://www.kestrelvillage.com"),
   openGraph: {
     title: "Kestrel Village New Homes | Summerlin West Las Vegas",
-    description: "New construction homes from $480K in Las Vegas' most sought-after village. 6+ communities by premier builders.",
+    description: "New construction homes from $477K in Las Vegas' most sought-after village. 5 communities by Woodside, Lennar & Pulte.",
     url: "https://www.kestrelvillage.com",
     siteName: "Kestrel Village",
     locale: "en_US",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Kestrel Village New Homes | Summerlin West",
-    description: "New construction homes from $480K in Las Vegas' most sought-after village.",
+    description: "New construction homes from $477K in Las Vegas' most sought-after village.",
   },
   robots: {
     index: true,
@@ -62,6 +62,12 @@ export default function RootLayout({
         className={`${dmSans.variable} ${playfair.variable} font-sans antialiased`}
       >
         {children}
+        {/* RealScout Property Search Widget */}
+        <Script
+          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
+          strategy="afterInteractive"
+          type="module"
+        />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           strategy="afterInteractive"

@@ -60,6 +60,7 @@ export default function KestrelVillage() {
             </div>
             <div className="hidden md:flex items-center gap-8 text-sm text-stone-400">
               <a href="#communities" className="hover:text-amber-400 transition-colors">Communities</a>
+              <a href="#listings" className="hover:text-amber-400 transition-colors">Listings</a>
               <a href="#why-representation" className="hover:text-amber-400 transition-colors">Why Me</a>
               <a href="#amenities" className="hover:text-amber-400 transition-colors">Amenities</a>
               <a href="#contact" className="hover:text-amber-400 transition-colors">Contact</a>
@@ -255,6 +256,50 @@ export default function KestrelVillage() {
                   </a>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Active Listings - RealScout Widget */}
+        <section id="listings" className="py-24 px-6 bg-gradient-to-b from-stone-900 to-stone-950">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="text-amber-500 text-sm uppercase tracking-widest">MLS Listings</span>
+              <h2 className="text-3xl md:text-5xl font-light mt-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Active <span className="text-amber-400 italic">Kestrel Village</span> Homes
+              </h2>
+              <p className="text-stone-400 mt-4 max-w-2xl mx-auto">
+                Search current listings in Kestrel Village and surrounding Summerlin communities. Updated in real-time from the MLS.
+              </p>
+            </div>
+
+            <div className="bg-stone-900/50 border border-stone-800 rounded-sm p-6 md:p-8">
+              <div 
+                dangerouslySetInnerHTML={{
+                  __html: `<realscout-simple-search 
+                    agent-encoded-id="QWdlbnQtMjI1MDUw"
+                    search-type="buy"
+                    price-min="400000"
+                    price-max="1500000"
+                    market="Las Vegas"
+                  ></realscout-simple-search>`
+                }}
+              />
+            </div>
+
+            <div className="mt-8 text-center">
+              <p className="text-stone-500 text-sm">
+                Powered by RealScout MLS • Updated every 15 minutes
+              </p>
+              <a 
+                href="tel:7022221964"
+                className="inline-flex items-center gap-2 mt-4 text-amber-400 hover:text-amber-300 transition-colors"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                Questions? Call Dr. Jan Duffy: 702-222-1964
+              </a>
             </div>
           </div>
         </section>
