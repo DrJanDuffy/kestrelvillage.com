@@ -141,19 +141,19 @@ export const communities: Community[] = [
     beds: '2-3',
     baths: '2.5-3.5',
     garage: '2-car',
-    price: 'From $480K',
-    status: 'Now Selling',
+    price: 'From $477K',
+    status: 'Final Opportunity',
     units: 112,
-    highlight: 'Kestrel Commons, covered patios & decks',
-    description: 'Vireo at Kestrel Village features Woodside Homes 2–3 story homes from $480K. 2–3 beds, 1,441–2,034 sq ft. Kestrel Commons, covered patios and decks in Summerlin West.',
+    highlight: 'Final homes available, covered patios & decks',
+    description: 'Vireo in Summerlin offers Woodside Homes 2–3 story homes from $477,490. 5 floor plans (Aspen, Sage, Acacia, Laurel, Rowan) with 2–3 beds, 1,441–2,034 sq ft. Final opportunity - selling out! Energy Star certified with covered patios.',
     highlights: [
-      'Kestrel Commons',
-      'Covered patios & decks',
-      '2–3 bedrooms',
+      'Final Opportunity - Selling Out!',
+      '5 floor plans: Aspen, Sage, Acacia, Laurel, Rowan',
+      '2–3 bedrooms, 2.5–3.5 baths',
       '1,441–2,034 sq ft',
-      '2-car garage'
+      'Quick Move-In homes available'
     ],
-    amenities: ['Kestrel Commons proximity', 'Covered outdoor living', 'Flexible floor plans', 'Modern finishes']
+    amenities: ['Energy Star certified', 'WaterSense fixtures', 'MERV 13 air filtration', 'Covered patios & decks', '200+ miles of Summerlin trails', 'Near Red Rock Canyon']
   }
 ];
 
