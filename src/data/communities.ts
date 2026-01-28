@@ -93,21 +93,44 @@ export const communities: Community[] = [
     type: 'Two-Story',
     sqft: '1,720 - 2,466',
     beds: '3-5',
-    baths: '2-4',
+    baths: '2.5-4',
     garage: '2-car',
-    price: 'From $480K',
+    price: 'From mid-$500K',
     status: 'Now Selling',
     units: 90,
-    highlight: 'Kestrel Commons with walking paths and hiking/biking trails',
-    description: 'Nighthawk at Kestrel Commons by KB Home offers 2-story homes from $480K. 3–5 beds, 1,720–2,466 sq ft with loft, walk-in pantry, and WaterSense® features. Commuter-friendly location with walking paths and park access.',
+    highlight: 'Gated neighborhood with private park in Kestrel Commons',
+    description: 'Nighthawk at Kestrel Commons by KB Home offers 6 distinctive two-story floor plans from mid-$500Ks. 3–5 beds, 1,720–2,466 sq ft. Gated neighborhood with future private park for residents. Easy 215 Beltway access.',
     highlights: [
-      'Kestrel Commons location',
-      'Loft spaces available',
-      'Walk-in kitchen pantry',
-      'Quartz surround primary bath',
-      'WaterSense® labeled home'
+      '6 distinctive floor plans',
+      'Gated neighborhood',
+      'Future private park for residents',
+      'Personalize layout and design options',
+      'Easy 215 Beltway access'
     ],
-    amenities: ['Walking paths', 'Hiking/biking trails', 'Park access', 'Maple kitchen cabinets', 'Breakfast bar', 'WaterSense® certified']
+    amenities: ['Gated entry', 'Private neighborhood park', 'Walking paths', 'Near Downtown Summerlin', 'Elevated views', 'Smart thermostats']
+  },
+  {
+    slug: 'quail-cove',
+    name: 'Quail Cove',
+    builder: 'KB Home',
+    type: 'Three-Story',
+    sqft: '1,651 - 2,302',
+    beds: '2-4',
+    baths: '2.5-3.5',
+    garage: '2-car',
+    price: 'From high $400K',
+    status: 'Now Selling',
+    units: 80,
+    highlight: 'First-ever KB Home 3-story floor plans in Las Vegas',
+    description: 'Quail Cove at Kestrel Commons features KB Home\'s first-ever three-story floor plans in Las Vegas. 4 modern designs from high $400Ks to mid-$500Ks. 2–4 beds, 1,651–2,302 sq ft with covered balconies and Smart home features.',
+    highlights: [
+      'First 3-story KB Homes in Las Vegas',
+      '4 modern contemporary floor plans',
+      'Covered balconies',
+      'Tankless water heaters',
+      'Smart thermostats included'
+    ],
+    amenities: ['Three-story living', 'Covered balconies', 'Tankless water heater', 'Smart thermostat', 'Upstairs laundry', 'Walk-in pantry options']
   },
   {
     slug: 'mockingbird',

@@ -105,10 +105,22 @@ const floorPlans = {
         name: 'Nighthawk',
         status: 'Now Selling',
         plans: [
-          { name: 'Plan 1720', sqft: '1,720', beds: 3, baths: 2, stories: 2, garage: 2, price: 'From $480K' },
-          { name: 'Plan 2015', sqft: '2,015', beds: 4, baths: 3, stories: 2, garage: 2, price: 'From $510K' },
-          { name: 'Plan 2240', sqft: '2,240', beds: 4, baths: 3, stories: 2, garage: 2, price: 'From $540K' },
-          { name: 'Plan 2466', sqft: '2,466', beds: 5, baths: 4, stories: 2, garage: 2, price: 'From $570K' },
+          { name: 'Plan 1720', sqft: '1,720', beds: 3, baths: 2.5, stories: 2, garage: 2, price: 'From mid-$500K' },
+          { name: 'Plan 1787', sqft: '1,787', beds: 3, baths: 2.5, stories: 2, garage: 2, price: 'From mid-$500K' },
+          { name: 'Plan 2069', sqft: '2,069', beds: 4, baths: 2.5, stories: 2, garage: 2, price: 'From high $500K' },
+          { name: 'Plan 2089', sqft: '2,089', beds: 5, baths: 3, stories: 2, garage: 2, price: 'From $600K' },
+          { name: 'Plan 2144', sqft: '2,114', beds: 5, baths: 3, stories: 2, garage: 2, price: 'From $600K' },
+          { name: 'Plan 2466', sqft: '2,466', beds: 5, baths: 4, stories: 2, garage: 2, price: 'From mid-$600K' },
+        ],
+      },
+      {
+        name: 'Quail Cove',
+        status: 'Now Selling',
+        plans: [
+          { name: 'Plan 1651', sqft: '1,651', beds: 3, baths: 3.5, stories: 3, garage: 2, price: 'From high $400K' },
+          { name: 'Plan 1920', sqft: '1,920', beds: 4, baths: 3.5, stories: 3, garage: 2, price: 'From low $500K' },
+          { name: 'Plan 2226', sqft: '2,226', beds: 4, baths: 3.5, stories: 3, garage: 2, price: 'From mid-$500K' },
+          { name: 'Plan 2302', sqft: '2,302', beds: 4, baths: 3.5, stories: 3, garage: 2, price: 'From mid-$500K' },
         ],
       },
     ],
@@ -423,7 +435,7 @@ export default function FloorPlansPage() {
               <h2 className="text-2xl font-light md:text-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>
                 KB <span className="italic text-cyan-400">Home</span>
               </h2>
-              <p className="text-stone-400 text-sm">Built to Order® • WaterSense® Certified • Kestrel Commons</p>
+              <p className="text-stone-400 text-sm">Built to Order® • 2 Neighborhoods in Kestrel Commons • First 3-Story in Las Vegas</p>
             </div>
           </div>
 
@@ -468,10 +480,11 @@ export default function FloorPlansPage() {
 
           {/* Kestrel Commons Note */}
           <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-sm p-6 mt-8">
-            <h3 className="text-lg font-semibold text-cyan-400 mb-2">Kestrel Commons</h3>
+            <h3 className="text-lg font-semibold text-cyan-400 mb-2">Kestrel Commons by KB Home</h3>
             <p className="text-stone-400 text-sm">
-              Nighthawk is located in Kestrel Commons, just below Kestrel Village at Lake Mead Blvd. and the 215 Beltway. 
-              This area offers an urban atmosphere with walking paths, hiking/biking trails, and park access.
+              Nighthawk and Quail Cove are located in Kestrel Commons, west of the 215 Beltway on elevated topography 
+              overlooking the Las Vegas Valley. Quail Cove features KB Home&apos;s first-ever three-story floor plans in Las Vegas. 
+              Easy access to Downtown Summerlin for shopping, dining, and entertainment.
             </p>
           </div>
         </div>

@@ -93,16 +93,17 @@ const builders = [
     name: 'KB Home',
     logo: '🏗️',
     tagline: 'Built to Order®',
-    description: 'KB Home offers personalized homes in Kestrel Commons with their Built to Order® approach. Known for energy efficiency, WaterSense® certification, and allowing buyers to choose their own finishes and features.',
+    description: 'KB Home offers two neighborhoods in Kestrel Commons with their Built to Order® approach. Nighthawk features gated two-story homes, while Quail Cove introduces KB Home\'s first-ever three-story floor plans in Las Vegas.',
     communities: [
-      { name: 'Nighthawk', status: 'Now Selling', price: 'From $480K', type: 'Two-Story', link: '/communities/nighthawk' },
+      { name: 'Nighthawk', status: 'Now Selling', price: 'From mid-$500K', type: 'Two-Story', link: '/communities/nighthawk' },
+      { name: 'Quail Cove', status: 'Now Selling', price: 'From high $400K', type: 'Three-Story', link: '/communities/quail-cove' },
     ],
     features: [
       'Built to Order® personalization',
-      'WaterSense® labeled homes',
-      'ENERGY STAR® certified',
-      'Walk-in kitchen pantry',
-      'Loft spaces available',
+      'First 3-story homes in Las Vegas (Quail Cove)',
+      'Gated neighborhoods with private parks',
+      'Tankless water heaters',
+      'Smart thermostats included',
     ],
     website: 'https://www.kbhome.com',
   },
@@ -267,8 +268,8 @@ export default function BuildersPage() {
                 </tr>
                 <tr className="border-b border-stone-800/50">
                   <td className="py-4 px-4 text-stone-100">KB Home</td>
-                  <td className="py-4 px-4 text-amber-400">From $480K</td>
-                  <td className="py-4 px-4 text-stone-300">Two-Story</td>
+                  <td className="py-4 px-4 text-amber-400">From high $400K</td>
+                  <td className="py-4 px-4 text-stone-300">2-Story & 3-Story</td>
                   <td className="py-4 px-4 text-stone-400">Built to Order®</td>
                 </tr>
                 <tr className="border-b border-stone-800/50">
