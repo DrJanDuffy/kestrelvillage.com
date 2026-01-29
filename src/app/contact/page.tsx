@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { RealScoutListingsSection } from '@/components/RealScoutListingsSection';
+import { CalendlyLink } from '@/components/CalendlyLink';
 
 const SITE_URL = 'https://www.kestrelvillage.com';
 
@@ -18,9 +20,46 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Dr. Jan Duffy - Kestrel Village Specialist',
+  description: 'Expert REALTOR® specializing in Kestrel Village new construction in Summerlin West, Las Vegas. 30+ years experience.',
+  url: SITE_URL,
+  telephone: '+1-702-222-1964',
+  email: 'jan@drjanduffy.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89138',
+    addressCountry: 'US',
+    streetAddress: 'Kestrel Village, Summerlin West',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 36.2468, longitude: -115.328 },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '08:00',
+    closes: '20:00',
+  },
+  priceRange: '$455,000 - $900,000+',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'Contact', item: `${SITE_URL}/contact` },
+  ],
+};
+
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-stone-950 text-stone-100">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <nav className="sticky top-0 z-40 border-b border-stone-800/50 bg-stone-950/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <Link
@@ -41,12 +80,9 @@ export default function ContactPage() {
             >
               Communities
             </Link>
-            <a
-              href="tel:7022221964"
-              className="rounded-sm bg-amber-500 px-4 py-2 text-sm font-semibold text-stone-950 hover:bg-amber-400 transition-colors"
-            >
-              702-222-1964
-            </a>
+            <CalendlyLink className="rounded-sm bg-amber-500 px-4 py-2 text-sm font-semibold text-stone-950 hover:bg-amber-400 transition-colors">
+              Schedule a Tour
+            </CalendlyLink>
           </div>
         </div>
       </nav>
@@ -75,20 +111,17 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Primary Contact */}
             <div className="space-y-6">
-              <a 
-                href="tel:7022221964" 
-                className="flex items-center gap-4 p-6 bg-amber-500 text-stone-950 rounded-sm hover:bg-amber-400 transition-all"
-              >
+              <CalendlyLink className="flex items-center gap-4 p-6 bg-amber-500 text-stone-950 rounded-sm hover:bg-amber-400 transition-colors">
                 <div className="w-12 h-12 bg-stone-950/20 rounded-full flex items-center justify-center">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div>
-                  <span className="block text-xl font-semibold">Call or Text</span>
-                  <span className="text-stone-800 text-lg">702-222-1964</span>
+                  <span className="block text-xl font-semibold">Schedule a Tour</span>
+                  <span className="text-stone-800 text-lg">Book online</span>
                 </div>
-              </a>
+              </CalendlyLink>
 
               <a 
                 href="mailto:jan@drjanduffy.com" 
@@ -114,6 +147,41 @@ export default function ContactPage() {
                   </p>
                 </div>
               </div>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Kestrel+Village+Summerlin+West+Las+Vegas+NV+89138"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-6 bg-stone-900 border border-stone-800 text-stone-200 rounded-sm hover:border-amber-500/50 transition-all"
+              >
+                <div className="w-12 h-12 bg-stone-800 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <span className="block text-lg font-semibold">Directions</span>
+                  <span className="text-stone-400">Kestrel Village, Summerlin West</span>
+                </div>
+              </a>
+
+              <a
+                href="https://www.google.com/search?q=Dr+Jan+Duffy+Las+Vegas+real+estate"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-6 bg-stone-900 border border-stone-800 text-stone-200 rounded-sm hover:border-amber-500/50 transition-all"
+              >
+                <div className="w-12 h-12 bg-stone-800 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                  </svg>
+                </div>
+                <div>
+                  <span className="block text-lg font-semibold">View Google Reviews</span>
+                  <span className="text-stone-400">See what clients say</span>
+                </div>
+              </a>
 
               <div className="p-6 bg-stone-900/50 border border-stone-800 rounded-sm">
                 <h3 className="text-lg font-semibold text-stone-100 mb-4">Brokerage</h3>
@@ -177,50 +245,15 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* RealScout Widget */}
-      <section className="px-6 py-16 bg-gradient-to-b from-stone-900 to-stone-950">
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center mb-10">
-            <p className="text-xs uppercase tracking-widest text-amber-500">
-              Live MLS Listings
-            </p>
-            <h2
-              className="mt-4 text-2xl font-light md:text-3xl"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-            >
-              Browse <span className="italic text-amber-400">Available Homes</span>
-            </h2>
-          </div>
-
-          <div className="bg-white rounded-sm overflow-hidden shadow-xl">
-            <div 
-              dangerouslySetInnerHTML={{
-                __html: `<realscout-office-listings 
-                  agent-encoded-id="QWdlbnQtMjI1MDUw"
-                  sort-order="NEWEST"
-                  listing-status="For Sale"
-                  property-types=",SFR,MF,TC"
-                  price-min="400000"
-                  price-max="1000000"
-                ></realscout-office-listings>`
-              }}
-            />
-          </div>
-        </div>
-      </section>
-
       <footer className="border-t border-stone-800 px-6 py-8">
         <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-center text-sm text-stone-500 md:text-left">
             Dr. Jan Duffy | Berkshire Hathaway HomeServices Nevada Properties |
             REALTOR® S.0197614.LLC
           </p>
-          <a
-            href="tel:7022221964"
-            className="font-semibold text-amber-400 hover:text-amber-300"
-          >
-            702-222-1964
-          </a>
+          <CalendlyLink className="font-semibold text-amber-400 hover:text-amber-300">
+            Schedule a Tour
+          </CalendlyLink>
         </div>
       </footer>
     </div>

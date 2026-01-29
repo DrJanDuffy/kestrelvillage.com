@@ -6,6 +6,8 @@ import {
   getCommunityBySlug,
   getAllCommunitySlugs,
 } from '@/data/communities';
+import { RealScoutListingsSection } from '@/components/RealScoutListingsSection';
+import { CalendlyLink } from '@/components/CalendlyLink';
 
 const SITE_URL = 'https://www.kestrelvillage.com';
 
@@ -73,6 +75,16 @@ export default async function CommunityPage({ params }: PageProps) {
     })),
   };
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org' as const,
+    '@type': 'BreadcrumbList' as const,
+    itemListElement: [
+      { '@type': 'ListItem' as const, position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem' as const, position: 2, name: 'Communities', item: `${SITE_URL}/communities` },
+      { '@type': 'ListItem' as const, position: 3, name: community.name, item: `${SITE_URL}/communities/${slug}` },
+    ],
+  };
+
   const statusClass =
     community.status === 'Now Selling'
       ? 'bg-green-500/20 text-green-400'
@@ -85,6 +97,10 @@ export default async function CommunityPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <div className="min-h-screen bg-stone-950 text-stone-100">
         <nav className="sticky top-0 z-40 border-b border-stone-800/50 bg-stone-950/90 backdrop-blur-md">
@@ -107,12 +123,9 @@ export default async function CommunityPage({ params }: PageProps) {
               >
                 All Communities
               </Link>
-              <a
-                href="tel:7022221964"
-                className="rounded-sm bg-amber-500 px-4 py-2 text-sm font-semibold text-stone-950 hover:bg-amber-400 transition-colors"
-              >
-                702-222-1964
-              </a>
+              <CalendlyLink className="rounded-sm bg-amber-500 px-4 py-2 text-sm font-semibold text-stone-950 hover:bg-amber-400 transition-colors">
+                Schedule a Tour
+              </CalendlyLink>
             </div>
           </div>
         </nav>
@@ -241,59 +254,6 @@ export default async function CommunityPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* Active Listings - RealScout Widget */}
-        <section className="border-b border-stone-800/50 bg-gradient-to-b from-stone-900 to-stone-950 px-6 py-16">
-          <div className="mx-auto max-w-6xl">
-            <div className="text-center mb-10">
-              <p className="text-xs uppercase tracking-widest text-amber-500">
-                Live MLS Listings
-              </p>
-              <h2
-                className="mt-4 text-2xl font-light md:text-3xl"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-              >
-                Available Homes in <span className="italic text-amber-400">{community.name}</span>
-              </h2>
-              <p className="mt-4 text-stone-400">
-                Current listings updated in real-time from the MLS. Click any home to see details.
-              </p>
-            </div>
-
-            {/* Registration Reminder */}
-            <div className="bg-amber-500/10 border border-amber-500/30 rounded-sm p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
-              <p className="text-stone-300 text-sm text-center md:text-left">
-                <strong className="text-amber-400">First visit?</strong> Call Dr. Jan Duffy before touring to ensure you&apos;re registered with {community.builder}.
-              </p>
-              <a 
-                href="tel:7022221964"
-                className="flex-shrink-0 px-6 py-2 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors text-sm whitespace-nowrap"
-              >
-                Call: 702-222-1964
-              </a>
-            </div>
-
-            {/* RealScout Widget */}
-            <div className="bg-white rounded-sm overflow-hidden shadow-xl">
-              <div 
-                dangerouslySetInnerHTML={{
-                  __html: `<realscout-office-listings 
-                    agent-encoded-id="QWdlbnQtMjI1MDUw"
-                    sort-order="NEWEST"
-                    listing-status="For Sale"
-                    property-types=",SFR,MF,TC"
-                    price-min="400000"
-                    price-max="1000000"
-                  ></realscout-office-listings>`
-                }}
-              />
-            </div>
-
-            <p className="mt-6 text-center text-stone-500 text-sm">
-              Powered by GLVAR MLS • Updated every 15 minutes
-            </p>
-          </div>
-        </section>
-
         <section className="px-6 py-16">
           <div className="mx-auto max-w-4xl">
             <div className="rounded-sm border border-amber-500/20 bg-gradient-to-br from-amber-500/10 via-stone-900 to-stone-900 p-8 md:p-12">
@@ -307,10 +267,7 @@ export default async function CommunityPage({ params }: PageProps) {
                 Call or text to schedule your VIP tour. I&apos;ll meet you at the model homes
                 and ensure you&apos;re properly registered with the builder.
               </p>
-              <a
-                href="tel:7022221964"
-                className="inline-flex items-center gap-3 rounded-sm bg-amber-500 px-6 py-4 font-semibold text-stone-950 hover:bg-amber-400 transition-colors"
-              >
+              <CalendlyLink className="inline-flex items-center gap-3 rounded-sm bg-amber-500 px-6 py-4 font-semibold text-stone-950 hover:bg-amber-400 transition-colors">
                 <svg
                   className="h-5 w-5"
                   fill="none"
@@ -321,11 +278,11 @@ export default async function CommunityPage({ params }: PageProps) {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                   />
                 </svg>
-                Schedule Tour: 702-222-1964
-              </a>
+                Schedule a Tour
+              </CalendlyLink>
             </div>
           </div>
         </section>
@@ -336,12 +293,9 @@ export default async function CommunityPage({ params }: PageProps) {
               Dr. Jan Duffy | Berkshire Hathaway HomeServices Nevada Properties |
               REALTOR® S.0197614.LLC
             </p>
-            <a
-              href="tel:7022221964"
-              className="font-semibold text-amber-400 hover:text-amber-300"
-            >
-              702-222-1964
-            </a>
+            <CalendlyLink className="font-semibold text-amber-400 hover:text-amber-300">
+              Schedule a Tour
+            </CalendlyLink>
           </div>
         </footer>
       </div>

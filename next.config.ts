@@ -30,7 +30,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://em.realscout.com https://www.realscout.com https://www.google-analytics.com https://analytics.google.com; frame-src 'self' https://em.realscout.com https://www.realscout.com;",
+            value: "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://www.googletagmanager.com https://www.google-analytics.com https://assets.calendly.com; connect-src 'self' https://em.realscout.com https://www.realscout.com https://www.google-analytics.com https://analytics.google.com https://calendly.com https://assets.calendly.com; frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com;",
           },
         ],
       },
@@ -45,6 +45,15 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/fonts/:path*",
         headers: [
           {
             key: "Cache-Control",

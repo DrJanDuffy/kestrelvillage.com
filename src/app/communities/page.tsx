@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { communities } from '@/data/communities';
+import { RealScoutListingsSection } from '@/components/RealScoutListingsSection';
+import { CalendlyLink } from '@/components/CalendlyLink';
 
 const SITE_URL = 'https://www.kestrelvillage.com';
 
@@ -21,9 +23,19 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'Communities', item: `${SITE_URL}/communities` },
+  ],
+};
+
 export default function CommunitiesPage() {
   return (
     <div className="min-h-screen bg-stone-950 text-stone-100">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <nav className="sticky top-0 z-40 border-b border-stone-800/50 bg-stone-950/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <Link
@@ -38,12 +50,9 @@ export default function CommunitiesPage() {
             </span>
           </Link>
           <div className="flex items-center gap-4">
-            <a
-              href="tel:7022221964"
-              className="rounded-sm bg-amber-500 px-4 py-2 text-sm font-semibold text-stone-950 hover:bg-amber-400 transition-colors"
-            >
-              702-222-1964
-            </a>
+            <CalendlyLink className="rounded-sm bg-amber-500 px-4 py-2 text-sm font-semibold text-stone-950 hover:bg-amber-400 transition-colors">
+              Schedule a Tour
+            </CalendlyLink>
           </div>
         </div>
       </nav>
@@ -160,73 +169,15 @@ export default function CommunitiesPage() {
         </div>
       </section>
 
-      {/* Active Listings - RealScout Widget */}
-      <section className="border-t border-stone-800 bg-gradient-to-b from-stone-900 to-stone-950 px-6 py-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center mb-10">
-            <p className="text-xs uppercase tracking-widest text-amber-500">
-              Live MLS Listings
-            </p>
-            <h2
-              className="mt-4 text-3xl font-light md:text-4xl"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-            >
-              Active Homes <span className="italic text-amber-400">for Sale</span>
-            </h2>
-            <p className="mt-4 text-stone-400">
-              Browse current Kestrel Village listings updated in real-time from the MLS.
-            </p>
-          </div>
-
-          {/* Registration Reminder */}
-          <div className="bg-amber-500/10 border border-amber-500/30 rounded-sm p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-stone-300 text-sm text-center md:text-left">
-              <strong className="text-amber-400">Important:</strong> Register with Dr. Jan Duffy before your first builder visit to ensure representation.
-            </p>
-            <a 
-              href="tel:7022221964"
-              className="flex-shrink-0 px-6 py-2 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors text-sm whitespace-nowrap"
-            >
-              Call First: 702-222-1964
-            </a>
-          </div>
-
-          {/* RealScout Widget */}
-          <div className="bg-white rounded-sm overflow-hidden shadow-xl">
-            <div 
-              dangerouslySetInnerHTML={{
-                __html: `<realscout-office-listings 
-                  agent-encoded-id="QWdlbnQtMjI1MDUw"
-                  sort-order="NEWEST"
-                  listing-status="For Sale"
-                  property-types=",SFR,MF,TC"
-                  price-min="400000"
-                  price-max="1000000"
-                ></realscout-office-listings>`
-              }}
-            />
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-stone-500 text-sm mb-4">
-              Powered by GLVAR MLS • Updated every 15 minutes
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="border-t border-stone-800 px-6 py-12">
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-stone-500">
             Ready to tour? Call Dr. Jan Duffy to schedule your VIP visit and ensure
             you&apos;re properly registered with the builder.
           </p>
-          <a
-            href="tel:7022221964"
-            className="mt-4 inline-flex items-center gap-2 rounded-sm bg-amber-500 px-6 py-3 font-semibold text-stone-950 hover:bg-amber-400 transition-colors"
-          >
-            Schedule Tour: 702-222-1964
-          </a>
+          <CalendlyLink className="mt-4 inline-flex items-center gap-2 rounded-sm bg-amber-500 px-6 py-3 font-semibold text-stone-950 hover:bg-amber-400 transition-colors">
+            Schedule a Tour
+          </CalendlyLink>
         </div>
       </section>
 
@@ -236,12 +187,9 @@ export default function CommunitiesPage() {
             Dr. Jan Duffy | Berkshire Hathaway HomeServices Nevada Properties |
             REALTOR® S.0197614.LLC
           </p>
-          <a
-            href="tel:7022221964"
-            className="font-semibold text-amber-400 hover:text-amber-300"
-          >
-            702-222-1964
-          </a>
+          <CalendlyLink className="font-semibold text-amber-400 hover:text-amber-300">
+            Schedule a Tour
+          </CalendlyLink>
         </div>
       </footer>
     </div>

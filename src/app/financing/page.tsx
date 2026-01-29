@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { RealScoutListingsSection } from '@/components/RealScoutListingsSection';
+import { CalendlyLink } from '@/components/CalendlyLink';
 
 const SITE_URL = 'https://www.kestrelvillage.com';
 
@@ -120,9 +122,19 @@ const programs = [
   },
 ];
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'Financing', item: `${SITE_URL}/financing` },
+  ],
+};
+
 export default function FinancingPage() {
   return (
     <div className="min-h-screen bg-stone-950 text-stone-100">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <nav className="sticky top-0 z-40 border-b border-stone-800/50 bg-stone-950/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <Link href="/" className="flex items-center gap-2 hover:text-amber-400 transition-colors">
@@ -135,9 +147,9 @@ export default function FinancingPage() {
             <Link href="/communities" className="text-sm text-stone-400 hover:text-amber-400 transition-colors hidden sm:block">
               Communities
             </Link>
-            <a href="tel:7022221964" className="rounded-sm bg-amber-500 px-4 py-2 text-sm font-semibold text-stone-950 hover:bg-amber-400 transition-colors">
-              702-222-1964
-            </a>
+            <CalendlyLink className="rounded-sm bg-amber-500 px-4 py-2 text-sm font-semibold text-stone-950 hover:bg-amber-400 transition-colors">
+              Schedule a Tour
+            </CalendlyLink>
           </div>
         </div>
       </nav>
@@ -154,6 +166,24 @@ export default function FinancingPage() {
           </p>
         </div>
       </header>
+
+      {/* RealScout Widget */}
+      <section className="px-6 py-16 bg-gradient-to-b from-stone-950 to-stone-900">
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-widest text-amber-500">Live MLS Listings</p>
+            <h2 className="mt-4 text-2xl font-light md:text-3xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+              Homes Eligible for <span className="italic text-green-400">DPA Programs</span>
+            </h2>
+          </div>
+
+          <RealScoutListingsSection />
+
+          <p className="text-xs text-stone-600 text-center mt-4">
+            Showing homes under $832,750 (max purchase price for most HIP programs)
+          </p>
+        </div>
+      </section>
 
       {/* Key Stats */}
       <section className="px-6 py-12 border-b border-stone-800/50 bg-gradient-to-r from-green-500/10 to-transparent">
@@ -510,12 +540,12 @@ export default function FinancingPage() {
               down payment assistance programs AND new construction builder negotiations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:7022221964" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-500 text-stone-950 font-semibold rounded-sm hover:bg-green-400 transition-colors">
+              <CalendlyLink className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-500 text-stone-950 font-semibold rounded-sm hover:bg-green-400 transition-colors">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                Call: 702-222-1964
-              </a>
+                Schedule a Tour
+              </CalendlyLink>
               <Link href="/communities" className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-stone-700 text-stone-300 rounded-sm hover:border-green-500/50 hover:text-green-400 transition-colors">
                 View Communities →
               </Link>
@@ -524,41 +554,12 @@ export default function FinancingPage() {
         </div>
       </section>
 
-      {/* RealScout Widget */}
-      <section className="px-6 py-16 bg-gradient-to-b from-stone-950 to-stone-900">
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center mb-10">
-            <p className="text-xs uppercase tracking-widest text-amber-500">Live MLS Listings</p>
-            <h2 className="mt-4 text-2xl font-light md:text-3xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-              Homes Eligible for <span className="italic text-green-400">DPA Programs</span>
-            </h2>
-          </div>
-
-          <div className="bg-white rounded-sm overflow-hidden shadow-xl">
-            <div dangerouslySetInnerHTML={{
-              __html: `<realscout-office-listings 
-                agent-encoded-id="QWdlbnQtMjI1MDUw"
-                sort-order="PRICE_LOW"
-                listing-status="For Sale"
-                property-types=",SFR,MF,TC"
-                price-min="400000"
-                price-max="832000"
-              ></realscout-office-listings>`
-            }} />
-          </div>
-
-          <p className="text-xs text-stone-600 text-center mt-4">
-            Showing homes under $832,750 (max purchase price for most HIP programs)
-          </p>
-        </div>
-      </section>
-
       <footer className="border-t border-stone-800 px-6 py-8">
         <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-center text-sm text-stone-500 md:text-left">
             Dr. Jan Duffy | Berkshire Hathaway HomeServices Nevada Properties | REALTOR® S.0197614.LLC
           </p>
-          <a href="tel:7022221964" className="font-semibold text-amber-400 hover:text-amber-300">702-222-1964</a>
+          <CalendlyLink className="font-semibold text-amber-400 hover:text-amber-300">Schedule a Tour</CalendlyLink>
         </div>
         <p className="text-stone-600 text-xs text-center mt-4 max-w-4xl mx-auto">
           Down payment assistance information provided for educational purposes. Rates and program details subject to change. 

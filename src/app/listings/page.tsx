@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { RealScoutListingsSection } from '@/components/RealScoutListingsSection';
+import { CalendlyLink } from '@/components/CalendlyLink';
 
 const SITE_URL = 'https://www.kestrelvillage.com';
 
@@ -34,9 +36,9 @@ export default function ListingsPage() {
             <Link href="/communities" className="text-sm text-stone-400 hover:text-amber-400 transition-colors hidden sm:block">
               Communities
             </Link>
-            <a href="tel:7022221964" className="rounded-sm bg-amber-500 px-4 py-2 text-sm font-semibold text-stone-950 hover:bg-amber-400 transition-colors">
-              702-222-1964
-            </a>
+            <CalendlyLink className="rounded-sm bg-amber-500 px-4 py-2 text-sm font-semibold text-stone-950 hover:bg-amber-400 transition-colors">
+              Schedule a Tour
+            </CalendlyLink>
           </div>
         </div>
       </nav>
@@ -95,18 +97,12 @@ export default function ListingsPage() {
       {/* Main Listings Widget */}
       <section className="px-6 py-12">
         <div className="mx-auto max-w-6xl">
-          <div className="bg-white rounded-sm overflow-hidden shadow-2xl">
-            <div dangerouslySetInnerHTML={{
-              __html: `<realscout-office-listings 
-                agent-encoded-id="QWdlbnQtMjI1MDUw"
-                sort-order="NEWEST"
-                listing-status="For Sale"
-                property-types=",SFR,MF,TC"
-                price-min="400000"
-                price-max="1200000"
-              ></realscout-office-listings>`
-            }} />
-          </div>
+          <RealScoutListingsSection />
+          <p className="mt-6 text-center text-stone-500 text-sm">
+            <a href="http://drjanduffy.realscout.com/onboarding" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 underline">
+              Get personalized listings & alerts →
+            </a>
+          </p>
         </div>
       </section>
 
@@ -188,12 +184,12 @@ export default function ListingsPage() {
               and accompany you on your tour to protect your interests.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:7022221964" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors">
+              <CalendlyLink className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                Call: 702-222-1964
-              </a>
+                Schedule a Tour
+              </CalendlyLink>
               <a href="mailto:jan@drjanduffy.com" className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-stone-700 text-stone-300 rounded-sm hover:border-amber-500/50 hover:text-amber-400 transition-colors">
                 Email Dr. Jan Duffy
               </a>
@@ -207,10 +203,12 @@ export default function ListingsPage() {
           <p className="text-center text-sm text-stone-500 md:text-left">
             Dr. Jan Duffy | Berkshire Hathaway HomeServices Nevada Properties | REALTOR® S.0197614.LLC
           </p>
-          <a href="tel:7022221964" className="font-semibold text-amber-400 hover:text-amber-300">702-222-1964</a>
+          <CalendlyLink className="font-semibold text-amber-400 hover:text-amber-300">Schedule a Tour</CalendlyLink>
         </div>
         <p className="text-stone-600 text-xs text-center mt-4 max-w-4xl mx-auto">
           Listings provided by Greater Las Vegas Association of REALTORS® MLS. Information deemed reliable but not guaranteed.
+          {' '}
+          <a href="http://drjanduffy.realscout.com/onboarding" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 underline">Get personalized listings</a>.
         </p>
       </footer>
     </div>

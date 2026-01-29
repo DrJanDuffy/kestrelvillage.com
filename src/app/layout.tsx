@@ -22,13 +22,13 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Kestrel Village New Homes | Summerlin West Las Vegas | Dr. Jan Duffy",
-  description: "Explore Kestrel Village new construction homes in Summerlin West, Las Vegas. 5 communities from $477K by Woodside Homes, Lennar & Pulte. Call Dr. Jan Duffy 702-222-1964 for VIP tours.",
-  keywords: "Kestrel Village, Summerlin West homes, Las Vegas new construction, Woodside Homes, Pulte Homes, Lennar, Dr. Jan Duffy, 89138",
+  description: "Explore Kestrel Village new construction homes in Summerlin West, Las Vegas. 8 communities from $455K by Woodside, KB Home, Taylor Morrison, Lennar & Pulte. Call Dr. Jan Duffy 702-222-1964 for VIP tours.",
+  keywords: "Kestrel Village, Summerlin West homes, Las Vegas new construction, Woodside Homes, KB Home, Pulte Homes, Lennar, Dr. Jan Duffy, 89138",
   authors: [{ name: "Dr. Jan Duffy" }],
   metadataBase: new URL("https://www.kestrelvillage.com"),
   openGraph: {
     title: "Kestrel Village New Homes | Summerlin West Las Vegas",
-    description: "New construction homes from $477K in Las Vegas' most sought-after village. 5 communities by Woodside, Lennar & Pulte.",
+    description: "New construction homes from $455K in Las Vegas' most sought-after village. 8 communities by Woodside, KB Home, Taylor Morrison, Lennar & Pulte.",
     url: "https://www.kestrelvillage.com",
     siteName: "Kestrel Village",
     locale: "en_US",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Kestrel Village New Homes | Summerlin West",
-    description: "New construction homes from $477K in Las Vegas' most sought-after village.",
+    description: "New construction homes from $455K in Las Vegas' most sought-after village.",
   },
   robots: {
     index: true,
@@ -49,6 +49,13 @@ export const metadata: Metadata = {
   other: {
     "theme-color": "#0c0a09",
   },
+};
+
+// BreadcrumbList for homepage (other pages add their own)
+const homeBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.kestrelvillage.com" }],
 };
 
 // LocalBusiness Schema for GBP optimization
@@ -88,7 +95,7 @@ const localBusinessSchema = {
       "name": "Las Vegas"
     }
   ],
-  "priceRange": "$477,000 - $900,000+",
+  "priceRange": "$455,000 - $900,000+",
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -123,6 +130,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <link rel="preconnect" href="https://em.realscout.com" />
+        <link rel="preconnect" href="https://www.realscout.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://assets.calendly.com" />
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(homeBreadcrumbSchema) }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
@@ -132,12 +148,30 @@ export default function RootLayout({
         className={`${dmSans.variable} ${playfair.variable} font-sans antialiased`}
       >
         {children}
-        {/* RealScout Property Search Widget */}
-        <Script
-          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          strategy="afterInteractive"
-          type="module"
-        />
+        <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
+        <Script id="calendly-badge" strategy="afterInteractive">
+          {`
+            function initCalendlyBadge() {
+              if (window.Calendly) {
+                window.Calendly.initBadgeWidget({
+                  url: 'https://calendly.com/drjanduffy/1-home-tour-30-mins',
+                  text: 'Schedule a Tour',
+                  color: '#0069ff',
+                  textColor: '#ffffff',
+                  branding: true
+                });
+              } else {
+                setTimeout(initCalendlyBadge, 50);
+              }
+            }
+            if (document.readyState === 'complete') {
+              initCalendlyBadge();
+            } else {
+              window.addEventListener('load', initCalendlyBadge);
+            }
+          `}
+        </Script>
+        {/* RealScout script loaded lazily when listings section is in view (see RealScoutListingsSection) */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           strategy="afterInteractive"

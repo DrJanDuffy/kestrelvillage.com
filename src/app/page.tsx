@@ -1,17 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 import { communities } from '@/data/communities';
+import { RealScoutListingsSection } from '@/components/RealScoutListingsSection';
+import { CalendlyLink } from '@/components/CalendlyLink';
+
+const CALENDLY_URL = 'https://calendly.com/drjanduffy/1-home-tour-30-mins';
 
 export default function KestrelVillage() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', interest: 'buyer' });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    window.location.href = 'tel:7022221964';
-  };
-
   return (
     <>
       <script
@@ -39,15 +35,11 @@ export default function KestrelVillage() {
 
       <div className="min-h-screen bg-stone-950 text-stone-100">
         {/* Mobile Call Button */}
-        <a 
-          href="tel:7022221964"
-          className="fixed bottom-6 right-6 z-50 md:hidden bg-amber-500 text-stone-950 p-4 rounded-full shadow-2xl shadow-amber-500/30"
-          aria-label="Call Dr. Jan Duffy"
-        >
+        <CalendlyLink className="fixed bottom-6 right-6 z-50 md:hidden bg-amber-500 text-stone-950 p-4 rounded-full shadow-2xl shadow-amber-500/30" aria-label="Schedule a tour with Dr. Jan Duffy">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
-        </a>
+        </CalendlyLink>
 
         {/* Navigation */}
         <nav className="fixed top-0 left-0 right-0 z-40 bg-stone-950/90 backdrop-blur-md border-b border-stone-800/50">
@@ -59,15 +51,18 @@ export default function KestrelVillage() {
               <span className="font-semibold text-lg hidden sm:block">Kestrel Village</span>
             </div>
             <div className="hidden md:flex items-center gap-8 text-sm text-stone-400">
+              <Link href="/kestrel-village" className="hover:text-amber-400 transition-colors">Kestrel Village</Link>
               <a href="#communities" className="hover:text-amber-400 transition-colors">Communities</a>
               <a href="#listings" className="hover:text-amber-400 transition-colors">Listings</a>
+              <Link href="/testimonials" className="hover:text-amber-400 transition-colors">Testimonials</Link>
+              <Link href="/neighborhood-map" className="hover:text-amber-400 transition-colors">Map</Link>
               <a href="#why-representation" className="hover:text-amber-400 transition-colors">Why Me</a>
               <a href="#amenities" className="hover:text-amber-400 transition-colors">Amenities</a>
               <a href="#contact" className="hover:text-amber-400 transition-colors">Contact</a>
             </div>
-            <a href="tel:7022221964" className="bg-amber-500 text-stone-950 px-4 py-2 rounded-sm text-sm font-semibold hover:bg-amber-400 transition-colors">
+            <CalendlyLink className="bg-amber-500 text-stone-950 px-4 py-2 rounded-sm text-sm font-semibold hover:bg-amber-400 transition-colors">
               702-222-1964
-            </a>
+            </CalendlyLink>
           </div>
         </nav>
 
@@ -113,15 +108,12 @@ export default function KestrelVillage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-3">
-              <a 
-                href="tel:7022221964"
-                className="group px-8 py-4 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-all flex items-center justify-center gap-2"
-              >
+              <CalendlyLink className="group px-8 py-4 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors flex items-center justify-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                Schedule VIP Tour: 702-222-1964
-              </a>
+                Schedule a Tour
+              </CalendlyLink>
               <a 
                 href="#communities"
                 className="px-8 py-4 border border-stone-700 text-stone-300 rounded-sm hover:border-amber-500/50 hover:text-amber-400 transition-all"
@@ -129,6 +121,11 @@ export default function KestrelVillage() {
                 Explore Communities →
               </a>
             </div>
+            <p className="mt-6 animate-fade-in-delay-4">
+              <Link href="/kestrel-village" className="text-stone-500 hover:text-amber-400 text-sm transition-colors">
+                Learn about Kestrel Village →
+              </Link>
+            </p>
 
             <div className="mt-16 animate-fade-in-delay-4">
               <p className="text-stone-600 text-xs uppercase tracking-widest mb-4">Featuring Homes By</p>
@@ -140,6 +137,68 @@ export default function KestrelVillage() {
             </div>
           </div>
         </header>
+
+        {/* Active Listings - RealScout Widget (Primary Lead Generator) */}
+        <section id="listings" className="py-24 px-6 bg-gradient-to-b from-stone-900 to-stone-950">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="text-amber-500 text-sm uppercase tracking-widest">Live MLS Listings</span>
+              <h2 className="text-3xl md:text-5xl font-light mt-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Homes for Sale in <span className="text-amber-400 italic">Kestrel Village</span>
+              </h2>
+              <p className="text-stone-400 mt-4 max-w-2xl mx-auto">
+                Browse current listings updated in real-time from the MLS. Click any home to see details, photos, and schedule a private tour.
+              </p>
+            </div>
+
+            {/* Call to Action Banner */}
+            <div className="bg-amber-500/10 border border-amber-500/30 rounded-sm p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-amber-500/20 rounded-full flex items-center justify-center">
+                  <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+                </div>
+                <p className="text-stone-300 text-sm">
+                  <strong className="text-amber-400">Register before visiting!</strong> Builders require agent registration on your first visit.
+                </p>
+              </div>
+              <CalendlyLink className="flex-shrink-0 px-6 py-2 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors text-sm">
+                Schedule a Tour
+              </CalendlyLink>
+            </div>
+
+            {/* RealScout Office Listings Widget - lazy-loaded when section is in view */}
+            <RealScoutListingsSection />
+
+            <div className="mt-8 text-center">
+              <p className="text-stone-500 text-sm mb-4">
+                Powered by GLVAR MLS • Updated every 15 minutes
+                {' • '}
+                <a href="http://drjanduffy.realscout.com/onboarding" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 underline">
+                  Get personalized listings
+                </a>
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <CalendlyLink className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  Schedule a Tour
+                </CalendlyLink>
+                <a 
+                  href="mailto:jan@drjanduffy.com"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-stone-700 text-stone-300 rounded-sm hover:border-amber-500/50 hover:text-amber-400 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  Email Dr. Jan Duffy
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Why Buyer Representation */}
         <section id="why-representation" className="py-24 px-6 bg-gradient-to-b from-stone-950 to-stone-900">
@@ -175,7 +234,7 @@ export default function KestrelVillage() {
                 { icon: '💰', title: 'Zero Cost To You', desc: "The builder pays my commission. My 30+ years of contract expertise costs you nothing extra." },
                 { icon: '📋', title: 'Contract Review', desc: "Builder contracts favor builders. I've reviewed hundreds—I know what to negotiate and what red flags to catch." }
               ].map((item, i) => (
-                <div key={i} className="bg-stone-900/50 border border-stone-800 rounded-sm p-6 hover:border-amber-500/30 transition-all">
+                <div key={i} className="bg-stone-900/50 border border-stone-800 rounded-sm p-6 hover:border-amber-500/30 transition-[border-color]">
                   <span className="text-3xl mb-4 block">{item.icon}</span>
                   <h4 className="text-lg font-semibold text-stone-100 mb-2">{item.title}</h4>
                   <p className="text-stone-400 text-sm leading-relaxed">{item.desc}</p>
@@ -202,7 +261,7 @@ export default function KestrelVillage() {
               {communities.map((n) => (
                 <div 
                   key={n.slug}
-                  className="group bg-stone-950 border border-stone-800 rounded-sm overflow-hidden hover:border-amber-500/50 transition-all duration-300"
+                  className="group bg-stone-950 border border-stone-800 rounded-sm overflow-hidden hover:border-amber-500/50 transition-[border-color] duration-300"
                 >
                   <Link href={`/communities/${n.slug}`} className="block">
                     <div className="bg-gradient-to-r from-amber-500/10 to-transparent p-6 border-b border-stone-800">
@@ -253,91 +312,11 @@ export default function KestrelVillage() {
                     </div>
                   </Link>
 
-                  <a 
-                    href="tel:7022221964"
-                    className="block bg-stone-900 border-t border-stone-800 p-4 text-center text-sm font-medium text-stone-400 group-hover:bg-amber-500 group-hover:text-stone-950 transition-all"
-                  >
-                    Schedule Tour →
-                  </a>
+                  <CalendlyLink className="block bg-stone-900 border-t border-stone-800 p-4 text-center text-sm font-medium text-stone-400 group-hover:bg-amber-500 group-hover:text-stone-950 transition-colors">
+                    Schedule a Tour →
+                  </CalendlyLink>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Active Listings - RealScout Widget (Primary Lead Generator) */}
-        <section id="listings" className="py-24 px-6 bg-gradient-to-b from-stone-900 to-stone-950">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="text-amber-500 text-sm uppercase tracking-widest">Live MLS Listings</span>
-              <h2 className="text-3xl md:text-5xl font-light mt-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Homes for Sale in <span className="text-amber-400 italic">Kestrel Village</span>
-              </h2>
-              <p className="text-stone-400 mt-4 max-w-2xl mx-auto">
-                Browse current listings updated in real-time from the MLS. Click any home to see details, photos, and schedule a private tour.
-              </p>
-            </div>
-
-            {/* Call to Action Banner */}
-            <div className="bg-amber-500/10 border border-amber-500/30 rounded-sm p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-amber-500/20 rounded-full flex items-center justify-center">
-                  <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                  </svg>
-                </div>
-                <p className="text-stone-300 text-sm">
-                  <strong className="text-amber-400">Register before visiting!</strong> Builders require agent registration on your first visit.
-                </p>
-              </div>
-              <a 
-                href="tel:7022221964"
-                className="flex-shrink-0 px-6 py-2 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors text-sm"
-              >
-                Call First: 702-222-1964
-              </a>
-            </div>
-
-            {/* RealScout Office Listings Widget */}
-            <div className="bg-white rounded-sm overflow-hidden shadow-xl">
-              <div 
-                dangerouslySetInnerHTML={{
-                  __html: `<realscout-office-listings 
-                    agent-encoded-id="QWdlbnQtMjI1MDUw"
-                    sort-order="NEWEST"
-                    listing-status="For Sale"
-                    property-types=",SFR,MF,TC"
-                    price-min="400000"
-                    price-max="1000000"
-                  ></realscout-office-listings>`
-                }}
-              />
-            </div>
-
-            <div className="mt-8 text-center">
-              <p className="text-stone-500 text-sm mb-4">
-                Powered by GLVAR MLS • Updated every 15 minutes
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="tel:7022221964"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  Schedule Private Tour: 702-222-1964
-                </a>
-                <a 
-                  href="mailto:jan@drjanduffy.com"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-stone-700 text-stone-300 rounded-sm hover:border-amber-500/50 hover:text-amber-400 transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  Email Dr. Jan Duffy
-                </a>
-              </div>
             </div>
           </div>
         </section>
@@ -524,15 +503,12 @@ export default function KestrelVillage() {
                   <p className="text-stone-300 text-sm mb-4">
                     Don&apos;t visit model homes alone! Call first and I&apos;ll meet you there.
                   </p>
-                  <a 
-                    href="tel:7022221964"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors"
-                  >
+                  <CalendlyLink className="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    702-222-1964
-                  </a>
+                    Schedule a Tour
+                  </CalendlyLink>
                 </div>
               </div>
             </div>
@@ -573,18 +549,18 @@ export default function KestrelVillage() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-6">
-                  <a href="tel:7022221964" className="flex items-center gap-4 p-4 bg-amber-500 text-stone-950 rounded-sm hover:bg-amber-400 transition-all">
+              <div className="grid md:grid-cols-2 gap-8 items-start">
+                <div className="space-y-6 md:sticky md:top-24">
+                  <CalendlyLink className="flex items-center gap-4 p-4 bg-amber-500 text-stone-950 rounded-sm hover:bg-amber-400 transition-colors">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     <div>
-                      <span className="block font-semibold">Call or Text Now</span>
-                      <span className="text-stone-800">702-222-1964</span>
+                      <span className="block font-semibold">Schedule a Tour</span>
+                      <span className="text-stone-800">Book online</span>
                     </div>
-                  </a>
-                  <a href="mailto:jan@drjanduffy.com" className="flex items-center gap-4 p-4 bg-stone-800 text-stone-200 rounded-sm hover:bg-stone-700 transition-all">
+                  </CalendlyLink>
+                  <a href="mailto:jan@drjanduffy.com" className="flex items-center gap-4 p-4 bg-stone-800 text-stone-200 rounded-sm hover:bg-stone-700 transition-colors">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
@@ -599,20 +575,13 @@ export default function KestrelVillage() {
                   </div>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <input type="text" placeholder="Your Name" className="w-full p-3 bg-stone-800 border border-stone-700 rounded-sm text-stone-100 placeholder-stone-500 focus:border-amber-500 focus:outline-none" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
-                  <input type="tel" placeholder="Phone Number" className="w-full p-3 bg-stone-800 border border-stone-700 rounded-sm text-stone-100 placeholder-stone-500 focus:border-amber-500 focus:outline-none" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
-                  <input type="email" placeholder="Email" className="w-full p-3 bg-stone-800 border border-stone-700 rounded-sm text-stone-100 placeholder-stone-500 focus:border-amber-500 focus:outline-none" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
-                  <select className="w-full p-3 bg-stone-800 border border-stone-700 rounded-sm text-stone-100 focus:border-amber-500 focus:outline-none" value={formData.interest} onChange={(e) => setFormData({...formData, interest: e.target.value})}>
-                    <option value="buyer">Buying New Construction</option>
-                    <option value="investor">Investment Property</option>
-                    <option value="relocation">Relocating to Vegas</option>
-                    <option value="info">Just Want Information</option>
-                  </select>
-                  <button type="submit" className="w-full p-4 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-all">
-                    Request VIP Tour →
-                  </button>
-                </form>
+                <div className="min-w-0 w-full overflow-visible" style={{ minHeight: '700px' }}>
+                  <div
+                    className="calendly-inline-widget w-full overflow-visible"
+                    data-url={CALENDLY_URL}
+                    style={{ minWidth: 320, height: 700 }}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -628,7 +597,7 @@ export default function KestrelVillage() {
                 <p className="text-stone-600 text-xs mt-1">REALTOR® S.0197614.LLC</p>
               </div>
               <div className="text-center md:text-right">
-                <a href="tel:7022221964" className="text-amber-400 font-semibold hover:text-amber-300">702-222-1964</a>
+                <CalendlyLink className="text-amber-400 font-semibold hover:text-amber-300">Schedule a Tour</CalendlyLink>
                 <p className="text-stone-500 text-sm mt-1">© 2025 KestrelVillage.com</p>
               </div>
             </div>

@@ -149,9 +149,10 @@ export const communities: Community[] = [
     status: 'Now Selling',
     units: 79,
     highlight: 'NextGen suites for multigenerational living',
-    description: 'Mockingbird at Kestrel Village offers Lennar two-story homes from $837,990. 3 floor plans (Bobby, Peter, Greg NextGen) with 5 beds, 3,000–3,335 sq ft. NextGen suites for multigenerational living in Summerlin West.',
+    description: 'Mockingbird at Kestrel Village offers Lennar two-story homes from $837,990, located at Fleet Wing & Scurry Bend. 3 floor plans (Bobby, Peter, Greg NextGen) with 5 beds, 3,000–3,335 sq ft. NextGen suites for multigenerational living in Summerlin West.',
     highlights: [
       'NextGen suites available',
+      'Located at Fleet Wing & Scurry Bend',
       '3 floor plans: Bobby, Peter, Greg NextGen',
       '5 bedrooms, 3-4 baths',
       '3,000–3,335 sq ft',
