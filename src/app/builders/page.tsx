@@ -146,6 +146,20 @@ export default function BuildersPage() {
         </div>
       </header>
 
+      {/* RealScout Widget */}
+      <section className="px-6 py-16 bg-gradient-to-b from-stone-950 to-stone-900">
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-widest text-amber-500">Live MLS Listings</p>
+            <h2 className="mt-4 text-2xl font-light md:text-3xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+              Available <span className="italic text-amber-400">Builder Homes</span>
+            </h2>
+          </div>
+
+          <RealScoutListingsSection />
+        </div>
+      </section>
+
       {/* Important Notice */}
       <section className="px-6 py-8 bg-gradient-to-r from-amber-500/10 to-rose-500/10 border-b border-amber-500/30">
         <div className="mx-auto max-w-4xl flex items-center gap-4">

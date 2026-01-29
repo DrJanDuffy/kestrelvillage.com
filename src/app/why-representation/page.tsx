@@ -67,6 +67,25 @@ export default function WhyRepresentationPage() {
         </div>
       </header>
 
+      {/* RealScout Widget */}
+      <section className="px-6 py-16 bg-stone-950">
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-widest text-amber-500">
+              Live MLS Listings
+            </p>
+            <h2
+              className="mt-4 text-2xl font-light md:text-3xl"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              Browse <span className="italic text-amber-400">Available Homes</span>
+            </h2>
+          </div>
+
+          <RealScoutListingsSection />
+        </div>
+      </section>
+
       {/* Warning Banner */}
       <section className="px-6 py-12 bg-gradient-to-r from-amber-500/10 to-rose-500/10 border-y border-amber-500/30">
         <div className="mx-auto max-w-4xl">

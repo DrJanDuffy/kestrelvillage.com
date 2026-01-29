@@ -56,6 +56,20 @@ export default function MarketReportPage() {
         </div>
       </header>
 
+      {/* RealScout Widget */}
+      <section className="px-6 py-16 bg-gradient-to-b from-stone-950 to-stone-900">
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-widest text-amber-500">Current Inventory</p>
+            <h2 className="mt-4 text-2xl font-light md:text-3xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+              Homes for Sale <span className="italic text-amber-400">Right Now</span>
+            </h2>
+          </div>
+
+          <RealScoutListingsSection />
+        </div>
+      </section>
+
       {/* Key Metrics */}
       <section className="px-6 py-12 bg-gradient-to-r from-blue-500/10 to-green-500/10 border-b border-blue-500/30">
         <div className="mx-auto max-w-5xl">

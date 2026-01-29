@@ -105,6 +105,25 @@ export default function ContactPage() {
         </div>
       </header>
 
+      {/* RealScout Widget */}
+      <section className="px-6 py-16 bg-gradient-to-b from-stone-900 to-stone-950">
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-widest text-amber-500">
+              Live MLS Listings
+            </p>
+            <h2
+              className="mt-4 text-2xl font-light md:text-3xl"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              Browse <span className="italic text-amber-400">Available Homes</span>
+            </h2>
+          </div>
+
+          <RealScoutListingsSection />
+        </div>
+      </section>
+
       {/* Contact Methods */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-5xl">

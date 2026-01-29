@@ -55,6 +55,20 @@ export default function AmenitiesPage() {
         </div>
       </header>
 
+      {/* RealScout Widget */}
+      <section className="px-6 py-16 bg-gradient-to-b from-stone-950 to-stone-900">
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-widest text-amber-500">Live MLS Listings</p>
+            <h2 className="mt-4 text-2xl font-light md:text-3xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+              Homes in <span className="italic text-amber-400">Kestrel Village</span>
+            </h2>
+          </div>
+
+          <RealScoutListingsSection />
+        </div>
+      </section>
+
       {/* Featured Amenity */}
       <section className="px-6 py-16 bg-gradient-to-r from-green-500/10 to-transparent">
         <div className="mx-auto max-w-5xl">
