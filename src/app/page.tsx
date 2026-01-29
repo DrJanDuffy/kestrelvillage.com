@@ -5,8 +5,6 @@ import { communities } from '@/data/communities';
 import { RealScoutListingsSection } from '@/components/RealScoutListingsSection';
 import { CalendlyLink } from '@/components/CalendlyLink';
 
-const CALENDLY_URL = 'https://calendly.com/drjanduffy/1-home-tour-30-mins';
-
 export default function KestrelVillage() {
   return (
     <>
@@ -575,12 +573,21 @@ export default function KestrelVillage() {
                   </div>
                 </div>
 
-                <div className="min-w-0 w-full overflow-visible" style={{ minHeight: '700px' }}>
-                  <div
-                    className="calendly-inline-widget w-full overflow-visible"
-                    data-url={CALENDLY_URL}
-                    style={{ minWidth: 320, height: 700 }}
-                  />
+                {/* Calendly widget removed for performance - users can click "Schedule a Tour" button */}
+                <div className="flex flex-col items-center justify-center text-center p-8 bg-stone-900/50 rounded-sm border border-stone-800" style={{ minHeight: '400px' }}>
+                  <div className="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mb-6">
+                    <svg className="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-stone-100 mb-2">Book Your Tour Online</h3>
+                  <p className="text-stone-400 mb-6 max-w-sm">
+                    Select a convenient time for your private tour of Kestrel Village model homes.
+                  </p>
+                  <CalendlyLink className="px-8 py-4 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors">
+                    Open Scheduling Calendar
+                  </CalendlyLink>
+                  <p className="text-stone-500 text-sm mt-4">30-minute tours available 7 days a week</p>
                 </div>
               </div>
             </div>

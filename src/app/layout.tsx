@@ -130,11 +130,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Critical preconnects - only for resources needed in first paint */}
         <link rel="preconnect" href="https://em.realscout.com" />
         <link rel="preconnect" href="https://www.realscout.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://assets.calendly.com" />
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        {/* Deferred preconnects - for resources loaded after interaction */}
+        <link rel="dns-prefetch" href="https://assets.calendly.com" />
+        <link rel="dns-prefetch" href="https://calendly.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        {/* Calendly CSS loaded dynamically on first interaction - see CalendlyLink component */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(homeBreadcrumbSchema) }}
@@ -148,35 +152,14 @@ export default function RootLayout({
         className={`${dmSans.variable} ${playfair.variable} font-sans antialiased`}
       >
         {children}
-        <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
-        <Script id="calendly-badge" strategy="afterInteractive">
-          {`
-            function initCalendlyBadge() {
-              if (window.Calendly) {
-                window.Calendly.initBadgeWidget({
-                  url: 'https://calendly.com/drjanduffy/1-home-tour-30-mins',
-                  text: 'Schedule a Tour',
-                  color: '#0069ff',
-                  textColor: '#ffffff',
-                  branding: true
-                });
-              } else {
-                setTimeout(initCalendlyBadge, 50);
-              }
-            }
-            if (document.readyState === 'complete') {
-              initCalendlyBadge();
-            } else {
-              window.addEventListener('load', initCalendlyBadge);
-            }
-          `}
-        </Script>
+        {/* Calendly loaded on-demand via CalendlyLink component - NOT globally */}
         {/* RealScout script loaded lazily when listings section is in view (see RealScoutListingsSection) */}
+        {/* Analytics deferred to lazyOnload - loads after page is fully interactive */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script id="gtag-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

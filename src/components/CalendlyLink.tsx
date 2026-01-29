@@ -1,13 +1,19 @@
 'use client';
 
-const CALENDLY_URL = 'https://calendly.com/drjanduffy/1-home-tour-30-mins';
+import { useCallback, useRef } from 'react';
 
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (opts: { url: string }) => void;
-    };
-  }
+const CALENDLY_URL = 'https://calendly.com/drjanduffy/1-home-tour-30-mins';
+const CALENDLY_CSS = 'https://assets.calendly.com/assets/external/widget.css';
+const CALENDLY_JS = 'https://assets.calendly.com/assets/external/widget.js';
+
+interface CalendlyAPI {
+  initPopupWidget: (opts: { url: string }) => void;
+}
+
+// Helper to get Calendly from window
+function getCalendly(): CalendlyAPI | undefined {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (window as any).Calendly as CalendlyAPI | undefined;
 }
 
 type CalendlyLinkProps = {
@@ -15,18 +21,86 @@ type CalendlyLinkProps = {
   className?: string;
 };
 
-export function CalendlyLink({ children, className }: CalendlyLinkProps) {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    if (typeof window !== 'undefined' && window.Calendly) {
-      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-    } else {
-      window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
+// Track if Calendly is loading/loaded globally
+let calendlyLoadPromise: Promise<void> | null = null;
+
+function loadCalendly(): Promise<void> {
+  if (calendlyLoadPromise) return calendlyLoadPromise;
+  
+  calendlyLoadPromise = new Promise((resolve) => {
+    // Load CSS
+    if (!document.querySelector(`link[href="${CALENDLY_CSS}"]`)) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = CALENDLY_CSS;
+      document.head.appendChild(link);
     }
-  };
+    
+    // Load JS
+    if (!document.querySelector(`script[src="${CALENDLY_JS}"]`)) {
+      const script = document.createElement('script');
+      script.src = CALENDLY_JS;
+      script.async = true;
+      script.onload = () => {
+        // Wait for Calendly to be available
+        const checkCalendly = () => {
+          if (getCalendly()) {
+            resolve();
+          } else {
+            setTimeout(checkCalendly, 50);
+          }
+        };
+        checkCalendly();
+      };
+      document.body.appendChild(script);
+    } else if (getCalendly()) {
+      resolve();
+    }
+  });
+  
+  return calendlyLoadPromise;
+}
+
+export function CalendlyLink({ children, className }: CalendlyLinkProps) {
+  const isLoadingRef = useRef(false);
+  
+  const handleClick = useCallback(async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    
+    // Prevent double-clicks while loading
+    if (isLoadingRef.current) return;
+    
+    if (typeof window !== 'undefined') {
+      const calendly = getCalendly();
+      if (calendly) {
+        // Already loaded, open immediately
+        calendly.initPopupWidget({ url: CALENDLY_URL });
+      } else {
+        // Load on-demand
+        isLoadingRef.current = true;
+        try {
+          await loadCalendly();
+          const loadedCalendly = getCalendly();
+          if (loadedCalendly) {
+            loadedCalendly.initPopupWidget({ url: CALENDLY_URL });
+          }
+        } catch {
+          // Fallback: open in new tab
+          window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
+        } finally {
+          isLoadingRef.current = false;
+        }
+      }
+    }
+  }, []);
 
   return (
-    <a href={CALENDLY_URL} onClick={handleClick} className={className} aria-label="Schedule a tour with Dr. Jan Duffy">
+    <a 
+      href={CALENDLY_URL} 
+      onClick={handleClick} 
+      className={className} 
+      aria-label="Schedule a tour with Dr. Jan Duffy"
+    >
       {children}
     </a>
   );
