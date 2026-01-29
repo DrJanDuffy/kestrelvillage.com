@@ -169,6 +169,47 @@ export default async function CommunityPage({ params }: PageProps) {
           </div>
         </header>
 
+        {/* Active Listings - RealScout Widget */}
+        <section className="border-b border-stone-800/50 bg-gradient-to-b from-stone-900 to-stone-950 px-6 py-16">
+          <div className="mx-auto max-w-6xl">
+            <div className="text-center mb-10">
+              <p className="text-xs uppercase tracking-widest text-amber-500">
+                Live MLS Listings
+              </p>
+              <h2
+                className="mt-4 text-2xl font-light md:text-3xl"
+                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+              >
+                Available Homes in <span className="italic text-amber-400">{community.name}</span>
+              </h2>
+              <p className="mt-4 text-stone-400">
+                Current listings updated in real-time from the MLS. Click any home to see details.
+              </p>
+            </div>
+
+            {/* Registration Reminder */}
+            <div className="bg-amber-500/10 border border-amber-500/30 rounded-sm p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+              <p className="text-stone-300 text-sm text-center md:text-left">
+                <strong className="text-amber-400">First visit?</strong> Call Dr. Jan Duffy before touring to ensure you&apos;re registered with {community.builder}.
+              </p>
+              <CalendlyLink className="flex-shrink-0 px-6 py-2 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors text-sm whitespace-nowrap">
+                Schedule a Tour
+              </CalendlyLink>
+            </div>
+
+            {/* RealScout Widget - lazy-loaded when in view */}
+            <RealScoutListingsSection />
+
+            <p className="mt-6 text-center text-stone-500 text-sm">
+              Powered by GLVAR MLS • Updated every 15 minutes
+              {' • '}
+              <a href="http://drjanduffy.realscout.com/onboarding" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 underline">
+                Get personalized listings
+              </a>
+            </p>
+          </div>
+        </section>
+
         <section className="border-b border-stone-800/50 px-6 py-12">
           <div className="mx-auto max-w-4xl">
             <h2 className="mb-6 text-sm uppercase tracking-widest text-amber-500">

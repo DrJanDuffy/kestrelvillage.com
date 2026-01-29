@@ -89,6 +89,49 @@ export default function CommunitiesPage() {
         </div>
       </header>
 
+      {/* Active Listings - RealScout Widget */}
+      <section className="border-t border-stone-800 bg-gradient-to-b from-stone-900 to-stone-950 px-6 py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-widest text-amber-500">
+              Live MLS Listings
+            </p>
+            <h2
+              className="mt-4 text-3xl font-light md:text-4xl"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              Active Homes <span className="italic text-amber-400">for Sale</span>
+            </h2>
+            <p className="mt-4 text-stone-400">
+              Browse current Kestrel Village listings updated in real-time from the MLS.
+            </p>
+          </div>
+
+          {/* Registration Reminder */}
+          <div className="bg-amber-500/10 border border-amber-500/30 rounded-sm p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-stone-300 text-sm text-center md:text-left">
+              <strong className="text-amber-400">Important:</strong> Register with Dr. Jan Duffy before your first builder visit to ensure representation.
+            </p>
+            <CalendlyLink className="flex-shrink-0 px-6 py-2 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors text-sm whitespace-nowrap">
+              Schedule a Tour
+            </CalendlyLink>
+          </div>
+
+          {/* RealScout Widget - lazy-loaded when in view */}
+          <RealScoutListingsSection />
+
+          <div className="mt-8 text-center">
+            <p className="text-stone-500 text-sm mb-4">
+              Powered by GLVAR MLS • Updated every 15 minutes
+              {' • '}
+              <a href="http://drjanduffy.realscout.com/onboarding" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 underline">
+                Get personalized listings
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="px-6 py-16">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
