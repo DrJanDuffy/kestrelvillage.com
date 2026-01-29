@@ -30,11 +30,11 @@ const localBusinessSchema = {
   email: 'jan@drjanduffy.com',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: '1980 Festival Plaza Drive, Suite 300',
     addressLocality: 'Las Vegas',
     addressRegion: 'NV',
-    postalCode: '89138',
+    postalCode: '89135',
     addressCountry: 'US',
-    streetAddress: 'Kestrel Village, Summerlin West',
   },
   geo: { '@type': 'GeoCoordinates', latitude: 36.2468, longitude: -115.328 },
   openingHoursSpecification: {
@@ -168,7 +168,7 @@ export default function ContactPage() {
               </div>
 
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Kestrel+Village+Summerlin+West+Las+Vegas+NV+89138"
+                href="https://www.google.com/maps/search/?api=1&query=1980+Festival+Plaza+Drive+Suite+300+Las+Vegas+NV+89135"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-6 bg-stone-900 border border-stone-800 text-stone-200 rounded-sm hover:border-amber-500/50 transition-all"
@@ -180,8 +180,8 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div>
-                  <span className="block text-lg font-semibold">Directions</span>
-                  <span className="text-stone-400">Kestrel Village, Summerlin West</span>
+                  <span className="block text-lg font-semibold">Office Location</span>
+                  <span className="text-stone-400">1980 Festival Plaza Dr, Suite 300</span>
                 </div>
               </a>
 
@@ -206,6 +206,8 @@ export default function ContactPage() {
                 <h3 className="text-lg font-semibold text-stone-100 mb-4">Brokerage</h3>
                 <p className="text-stone-300 font-medium">Berkshire Hathaway HomeServices</p>
                 <p className="text-stone-400">Nevada Properties</p>
+                <p className="text-stone-400 text-sm mt-2">1980 Festival Plaza Drive, Suite 300</p>
+                <p className="text-stone-400 text-sm">Las Vegas, NV 89135</p>
                 <p className="text-stone-500 text-sm mt-2">REALTOR® S.0197614.LLC</p>
               </div>
             </div>
@@ -214,23 +216,22 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div className="rounded-sm overflow-hidden border border-stone-800 h-[300px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12889.847361817894!2d-115.33559635!3d36.2467995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8bf3b2b3d3b3b%3A0x3b3b3b3b3b3b3b3b!2sKestrel%20Village%2C%20Las%20Vegas%2C%20NV%2089138!5e0!3m2!1sen!2sus!4v1706000000000!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3222.5!2d-115.3!3d36.17!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c0f!2s1980%20Festival%20Plaza%20Dr%2C%20Las%20Vegas%2C%20NV%2089135!5e0!3m2!1sen!2sus!4v1706000000000!5m2!1sen!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Kestrel Village Location"
+                  title="Office Location - 1980 Festival Plaza Drive"
                 />
               </div>
               <div className="p-6 bg-stone-900/50 border border-stone-800 rounded-sm">
-                <h3 className="text-lg font-semibold text-stone-100 mb-2">Service Area</h3>
-                <p className="text-stone-400">
-                  Kestrel Village, Summerlin West, Las Vegas, NV 89138
-                </p>
-                <p className="text-stone-500 text-sm mt-2">
-                  Specializing in new construction homes throughout Summerlin
+                <h3 className="text-lg font-semibold text-stone-100 mb-2">Office Address</h3>
+                <p className="text-stone-300 font-medium">1980 Festival Plaza Drive, Suite 300</p>
+                <p className="text-stone-400">Las Vegas, NV 89135</p>
+                <p className="text-stone-500 text-sm mt-4">
+                  Specializing in Kestrel Village &amp; Summerlin new construction
                 </p>
               </div>
             </div>

@@ -20,9 +20,10 @@ export default function KestrelVillage() {
             "telephone": "+1-702-222-1964",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "1980 Festival Plaza Drive, Suite 300",
               "addressLocality": "Las Vegas",
               "addressRegion": "NV",
-              "postalCode": "89138",
+              "postalCode": "89135",
               "addressCountry": "US"
             },
             "areaServed": "Kestrel Village, Summerlin West, Las Vegas",

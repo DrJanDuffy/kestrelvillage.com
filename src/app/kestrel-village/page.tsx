@@ -53,11 +53,11 @@ export default function KestrelVillagePage() {
     url: `${SITE_URL}/kestrel-village`,
     address: {
       '@type': 'PostalAddress',
+      streetAddress: '1980 Festival Plaza Drive, Suite 300',
       addressLocality: 'Las Vegas',
       addressRegion: 'NV',
-      postalCode: '89138',
+      postalCode: '89135',
       addressCountry: 'US',
-      streetAddress: 'North Summerlin West, Lake Mead Blvd & 215 corridor',
     },
     geo: {
       '@type': 'GeoCoordinates',
@@ -81,9 +81,10 @@ export default function KestrelVillagePage() {
     email: 'jan@drjanduffy.com',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: '1980 Festival Plaza Drive, Suite 300',
       addressLocality: 'Las Vegas',
       addressRegion: 'NV',
-      postalCode: '89138',
+      postalCode: '89135',
       addressCountry: 'US',
     },
     areaServed: { '@type': 'Place', name: 'Kestrel Village, Summerlin West, Las Vegas, NV' },
@@ -174,15 +175,15 @@ export default function KestrelVillagePage() {
               <li><strong className="text-stone-300">Name:</strong> Dr. Jan Duffy</li>
               <li><strong className="text-stone-300">License:</strong> S.0197614.LLC</li>
               <li><strong className="text-stone-300">Company:</strong> Berkshire Hathaway HomeServices Nevada Properties</li>
+              <li><strong className="text-stone-300">Office:</strong> 1980 Festival Plaza Drive, Suite 300, Las Vegas, NV 89135</li>
               <li><strong className="text-stone-300">Schedule:</strong> <CalendlyLink className="text-amber-400 hover:text-amber-300">Schedule a Tour</CalendlyLink></li>
-              <li><strong className="text-stone-300">Service area:</strong> Kestrel Village, Summerlin West, Las Vegas, NV 89138</li>
             </ul>
             <div className="flex flex-wrap gap-3">
               <CalendlyLink className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500 text-stone-950 font-semibold rounded-sm hover:bg-amber-400 transition-colors">
                 Schedule a Tour
               </CalendlyLink>
-              <a href="https://www.google.com/maps/search/?api=1&query=Kestrel+Village+Summerlin+West+Las+Vegas+NV+89138" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 border border-stone-600 text-stone-300 rounded-sm hover:border-amber-500/50 hover:text-amber-400 transition-colors">
-                Directions
+              <a href="https://www.google.com/maps/search/?api=1&query=1980+Festival+Plaza+Drive+Suite+300+Las+Vegas+NV+89135" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 border border-stone-600 text-stone-300 rounded-sm hover:border-amber-500/50 hover:text-amber-400 transition-colors">
+                Office Directions
               </a>
               <a href="https://www.google.com/search?q=Dr+Jan+Duffy+Berkshire+Hathaway+Nevada" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 border border-stone-600 text-stone-300 rounded-sm hover:border-amber-500/50 hover:text-amber-400 transition-colors">
                 View Google Reviews

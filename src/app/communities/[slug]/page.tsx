@@ -62,9 +62,10 @@ export default async function CommunityPage({ params }: PageProps) {
     url: `${SITE_URL}/communities/${slug}`,
     address: {
       '@type': 'PostalAddress' as const,
+      streetAddress: '1980 Festival Plaza Drive, Suite 300',
       addressLocality: 'Las Vegas',
       addressRegion: 'NV',
-      postalCode: '89138',
+      postalCode: '89135',
       addressCountry: 'US',
     },
     numberOfUnits: community.units,

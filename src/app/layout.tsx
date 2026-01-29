@@ -70,10 +70,10 @@ const localBusinessSchema = {
   "email": "jan@drjanduffy.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Summerlin West",
+    "streetAddress": "1980 Festival Plaza Drive, Suite 300",
     "addressLocality": "Las Vegas",
     "addressRegion": "NV",
-    "postalCode": "89138",
+    "postalCode": "89135",
     "addressCountry": "US"
   },
   "geo": {
